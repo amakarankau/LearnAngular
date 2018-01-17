@@ -1,0 +1,26 @@
+<div>
+  <ul>
+    <li>Name: {{product.name}}</li>
+    <li>Description: {{product.description}}</li>
+    <li>Price: {{product.price}}</li>
+    <li>Category: {{product.category}}</li>
+    <li>Available: {{product.isAvailable}}</li>
+  </ul> 
+</div>
+
+<div class="panel-body">
+  <ul>
+    <p>Ingredients</p>
+    <li *ngFor="let i of ingredients">
+      <ul>
+        <li>Ingredient: {{i}}</li>
+      </ul>
+    </li>
+    <p>Equivalents</p>
+    <li *ngFor="let j of equivalents">
+      <ul>
+        <li>Equivalent: {{j}}</li>
+      </ul>
+    </li>
+  </ul>
+</div> 
