@@ -1,24 +1,26 @@
 <div>
-  <ul>
-    <li>Name: {{prod.name}}</li>
-    <li>Description: {{prod.description}}</li>
-    <li>Price: {{prod.price}}</li>
-    <li>Category: {{prod.category}}</li>
-    <li>Available: {{prod.isAvailable}}</li>
-  </ul> 
+  <div>
+    <ul>
+      <li>Name: {{prod.name}}</li>
+      <li>Description: {{prod.description}}</li>
+      <li>Price: {{prod.price}}</li>
+      <li>Category: {{prod.category}}</li>
+      <li>Available: {{prod.isAvailable}}</li>
+    </ul> 
+  </div>
+
+  <div>
+    <ul style="list-style-type:disc">
+      <h4>Ingredients:</h4>
+      <div *ngFor="let i of prod.ingredients">
+          <li>{{i}}</li>
+      </div>
+
+      <h4>Equivalents:</h4>
+      <div *ngFor="let j of prod.equivalents">
+        <li>{{j}}</li>
+      </div>
+    </ul>
+  </div> 
+  <p></p>
 </div>
-
-<div>
-  <ul style="list-style-type:disc">
-    <h4>Ingredients:</h4>
-    <div *ngFor="let i of prod.ingredients">
-        <li>{{i}}</li>
-    </div>
-
-    <h4>Equivalents:</h4>
-    <div *ngFor="let j of prod.equivalents">
-       <li>{{j}}</li>
-    </div>
-  </ul>
-</div> 
-<p></p>
