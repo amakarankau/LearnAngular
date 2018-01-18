@@ -9,12 +9,16 @@ import { ProductComponent } from '../product/product.component';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+
   @Input() public productComponent: ProductComponent;
 
   products: Product[];
-  constructor(private productsService: ProductsService) { }
 
-  ngOnInit() {
+  constructor(private productsService: ProductsService) { 
+
+  }
+
+  ngOnInit(): void {
     this.products = this.productsService.getProducts();
   }
 

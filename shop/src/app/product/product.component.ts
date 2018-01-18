@@ -9,12 +9,11 @@ import { Product } from './product-model';
 export class ProductComponent implements OnInit {
 
   @Input() prod: Product;
+
   constructor () {
 
   }
 
-
-
-  ngOnInit() {
+  ngOnInit(): void {
   }
 }
