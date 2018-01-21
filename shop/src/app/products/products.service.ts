@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product-model';
-import { Category } from './category';
-import { Ingredient } from './ingredients';
-import { Equivalent } from './equivalents';
+
+import { Product } from './product/entity/product-model';
+import { Category } from './product/entity/category';
+import { Ingredient } from './product/entity/ingredients';
+import { Equivalent } from './product/entity/equivalents';
 
 @Injectable()
 export class ProductsService {

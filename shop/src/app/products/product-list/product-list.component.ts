@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProductsService } from '../product/products.service';
-import { Product } from '../product/product-model';
+
+import { ProductsService } from '../products.service';
+import { Product } from '../product/entity/product-model';
 import { ProductComponent } from '../product/product.component';
 
 @Component({
@@ -14,7 +15,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private productsService: ProductsService) { 
+  constructor(private productsService: ProductsService) {
 
   }
 
