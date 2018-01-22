@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CartService } from './cart.service';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-cart',

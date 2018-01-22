@@ -1,1 +1,5 @@
-<div class = "cart" *ngIf="!isEmptyCart()">Cart is not empty</div>
+<div class = "cart" *ngIf="!isEmptyCart()">
+        <button type="button" class="btn btn-success" [routerLink]="['/cartList']" (click)="showCart()">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+        </button>
+</div>
