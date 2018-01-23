@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { CartComponent } from './cart.component';
 import { CartService } from './cart.service';
@@ -12,7 +13,7 @@ import { CartListComponent } from './cart-list/cart-list.component';
 
 @NgModule({
   declarations: [CartComponent, CartItemComponent, CartListComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   exports: [CartComponent, CartItemComponent, CartListComponent],
   providers: [CartService]
 })

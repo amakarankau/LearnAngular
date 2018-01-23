@@ -39,4 +39,19 @@ export class CartListComponent implements OnInit {
     console.log(this.cartItems);
   }
 
+  public getTotalPrice(): number {
+    return this.cartService.getTotalPrice();
+  }
+
+  upQuantity(item: CartItem) {
+    item.quantity++;
+  }
+
+  downQuantity(item: CartItem) {
+    if (item.quantity !== 0) {
+      item.quantity--;
+    }
+  }
+
 }
+

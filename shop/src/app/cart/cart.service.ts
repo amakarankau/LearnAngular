@@ -25,6 +25,10 @@ export class CartService {
         }
     }
 
+    getTotalPrice(): number {
+        return this.cartList.reduce((prev, current) => prev + current.price, 0);
+    }
+
     isEmptyCart(): boolean {
         return this.cartList.length === 0;
     }
