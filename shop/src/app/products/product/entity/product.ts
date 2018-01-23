@@ -3,6 +3,7 @@ import { Ingredient } from './ingredients';
 import { Equivalent } from './equivalents';
 
 export interface IProduct {
+    id: number;
     name: string;
     description: string;
     price: number;
@@ -10,4 +11,5 @@ export interface IProduct {
     isAvailable: boolean;
     ingredients: Ingredient[];
     equivalents: Equivalent[];
+    inStock: number;
   }

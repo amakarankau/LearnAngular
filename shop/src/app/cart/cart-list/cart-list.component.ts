@@ -15,7 +15,6 @@ export class CartListComponent implements OnInit {
 
   cartProducts: Product[] = [];
   cartItems: CartItem[] = [];
- // cartItems: Map <string, number> = new Map();
 
   constructor(private cartService: CartService) { }
 
@@ -44,7 +43,8 @@ export class CartListComponent implements OnInit {
   }
 
   upQuantity(item: CartItem) {
-    item.quantity++;
+    // add if with inStock value
+     item.quantity++;
   }
 
   downQuantity(item: CartItem) {
