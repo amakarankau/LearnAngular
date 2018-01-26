@@ -1,4 +1,7 @@
+import { Product } from '../../products/product/entity/product-model';
+
 export interface ICartItem {
-    name: string;
+    product: Product;
     quantity: number;
+
 }

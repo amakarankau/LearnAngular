@@ -1,6 +1,8 @@
 <div>
     <div *ngFor="let item of cartItems"> 
-     <span> {{ item.name }} </span>        <button (click)="downQuantity(item)">-</button> <input type="text" [(ngModel)] = "item.quantity"><button (click)="upQuantity(item)">+</button>
+     <span> {{ item.product.name }} </span>        <button (click)="downQuantity(item)">-</button> <input type="text" [(ngModel)] = "item.quantity"><button (click)="upQuantity(item)">+</button>
+     <button (click)="removeFromCart(item)">Remove</button>
     </div>
+
 </div>
 <p>Total: {{ getTotalPrice() }}</p>

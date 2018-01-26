@@ -13,29 +13,32 @@ import { CartItem } from '../cart-item/cart-item.model';
 })
 export class CartListComponent implements OnInit {
 
-  cartProducts: Product[] = [];
+  // cartProducts: Product[] = [];
   cartItems: CartItem[] = [];
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartProducts = this.cartService.getCart();
-    this.processCartDuplicates();
+     this.cartItems = this.cartService.getCart();
+
   }
 
-  processCartDuplicates(): void {
-    const innerCartProducts = this.cartProducts;
-    const innerCartItems = this.cartItems;
-    innerCartProducts.forEach(element => {
-      if (innerCartItems.some(function (i) { return i.name === element.name; })) {
-        const index = innerCartItems.findIndex((obj) => obj.name === element.name);
-        innerCartItems[index].quantity += 1;
-      } else {
-        innerCartItems.push(new CartItem((element.name), 1));
-      }
-    });
-    this.cartItems = innerCartItems;
-    console.log(this.cartItems);
+  // processCartDuplicates(): void {
+  //   this.cartProducts.forEach(element => {
+  //     if (this.cartItems.some(function (i) { return i.id === element.id; })) {
+  //       const index = this.cartItems.findIndex((obj) => obj.id === element.id);
+  //       this.cartItems[index].quantity += 1;
+  //     } else {
+  //       this.cartItems.push(new CartItem((element.id), 1));
+  //     }
+  //   });
+  //   console.log(this.cartItems);
+  // }
+
+  public removeFromCart(item: CartItem) {
+    const currentItems = [...this.cartItems];
+    const itemsWithoutRemoved = currentItems.filter(i => i.product.id !== item.product.id);
+    this.cartItems = itemsWithoutRemoved;
   }
 
   public getTotalPrice(): number {
@@ -52,6 +55,8 @@ export class CartListComponent implements OnInit {
       item.quantity--;
     }
   }
+
+
 
 }
 

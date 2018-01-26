@@ -10,6 +10,10 @@ export class ProductsService {
 
   constructor() { }
 
+  getProductById(id: number): Product {
+    return this.getProducts().find((i) => i.id === id);
+  }
+
   getProducts(): Array<Product> {
     return [
       new Product(1, 'Name1', 'description1', 1.11, Category.Category1, true,
