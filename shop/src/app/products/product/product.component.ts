@@ -20,7 +20,9 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(): void {
-    this.cartService.addToCart(this.prod);
+    if (this.prod.inStock > 0) {
+     this.cartService.addToCart(this.prod);
+    }
   }
 
   ngOnInit(): void {

@@ -1,11 +1,9 @@
-<div>
+<div class = "product-container">
   <div>
     <ul>
       <li>Name: {{prod.name}}</li>
       <li>Description: {{prod.description}}</li>
       <li>Price: {{prod.price}}</li>
-      <li>Category: {{prod.category}}</li>
-      <li>Available: {{prod.isAvailable}}</li>
     </ul> 
   </div>
 
@@ -23,8 +21,8 @@
     </ul>
   </div> 
   <p></p>
+  <div class="col-md-2">
+    <button type="button" [attr.disabled]="prod.inStock === 0 ? true : null" class="btn btn-block" (click)="addToCart()">Add to cart</button>
+  </div>
+  <div>In stock: {{prod.inStock}}</div>
 </div>
-<div class="col-md-2">
-  <button type="button" class="btn btn-block" (click)="addToCart()">Add to cart</button>
-</div>
-<div>In stock: {{prod.inStock}}</div>

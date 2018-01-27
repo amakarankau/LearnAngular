@@ -15,7 +15,6 @@ export class CartService {
     }
 
     addToCart(product: Product) {
-        debugger;
         const cart = this.cartList;
         let item = cart.find((p) => p.product.id === product.id);
         if (item === undefined) {
@@ -24,17 +23,10 @@ export class CartService {
         } else {
             item.quantity += 1;
         }
-
-
-//        cart.items = cart.items.filter((cartItem) => cartItem.quantity > 0);
-
         this.getTotalPrice();
-        // const cartItem = new CartItem(1, null, product);
-        // this.cartList.push(cartItem);
     }
 
     removeFromCart(id: number): void {
-        debugger;
         const item: CartItem = this.cartList.find((obj) => obj.product.id === id);
         if (item) {
             const index: number = this.cartList.indexOf(item);
@@ -42,13 +34,14 @@ export class CartService {
         }
     }
 
-
     updateCartContent(newCart: CartItem[]) {
         this.cartList = newCart;
     }
 
     getTotalPrice(): number {
-        return this.cartList.reduce((prev, current) => prev + current.price, 0);
+        let total = 0;
+        this.cartList.forEach((item) => total += item.price * item.quantity);
+        return Math.round(total * 100) / 100;
     }
 
     isEmptyCart(): boolean {
