@@ -7,13 +7,13 @@
 }
 
 .selected {
-  padding: 7px;
+  padding: 10px;
   border: 1px solid #81aae9;
   background-color: whitesmoke;
 }
 
 .unSelected {
-  padding: 7px;
+  padding: 10px;
   border: 1px solid white;
   background-color: white;
 }
