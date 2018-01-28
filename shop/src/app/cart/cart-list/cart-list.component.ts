@@ -14,7 +14,6 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class CartListComponent implements OnInit, OnChanges {
 
-  // cartProducts: Product[] = [];
   cartItems: CartItem[] = [];
 
   constructor(private cartService: CartService) { }

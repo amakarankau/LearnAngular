@@ -20,9 +20,13 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(): void {
-    if (this.prod.inStock > 0) {
+    if (!this.isOutOfStock()) {
      this.cartService.addToCart(this.prod);
     }
+  }
+
+  isOutOfStock(): boolean {
+    return this.prod.inStock <= 0;
   }
 
   ngOnInit(): void {

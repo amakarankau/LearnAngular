@@ -12,6 +12,7 @@ import { CartListComponent } from './cart/cart-list/cart-list.component';
 
 import { NoContentComponent } from './no-content/no-content.component';
 import { HomeComponent } from './home/home.component';
+import { NavBarModule } from './navbar/navbar.module';
 
 export const routeList: Routes = [
   {path: '', component: HomeComponent},
@@ -26,6 +27,7 @@ export const routeList: Routes = [
     HomeComponent
   ],
   imports: [
+    NavBarModule,
     BrowserModule,
     CartModule,
     ProductsModule,
