@@ -1,29 +1,34 @@
-<div class = "product-container">
-  <div>
-    <ul>
-      <li>Name: {{prod.name}}</li>
-      <li>Description: {{prod.description}}</li>
-      <li>Price: {{prod.price}}</li>
-    </ul> 
+<div class="product-container">
+  <div class="row">
+    <div class="col-9">
+      <ul>
+        <li class="productName">
+          {{prod.name}}</li>
+        <li>
+            <strong>Description: </strong> {{prod.description}}</li>
+        <li>
+            <strong>Price: </strong>{{prod.price}}</li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <p>
+        <ul style="list-style-type:disc">
+            <strong>Ingredients:</strong>
+          <br/>
+          <div *ngFor="let i of prod.ingredients">
+            <li>{{i}}</li>
+          </div>
+          <br/>
+          <strong>Equivalents:</strong>
+          <div *ngFor="let j of prod.equivalents">
+            <li>{{j}}</li>
+          </div>
+        </ul>
+    </div>
+    <div class="col-4 buttonBlock">
+      <button type="button" [attr.disabled]="prod.inStock === 0 ? true : null" class="btn" (click)="addToCart()">
+        <i class="fas fa-cart-plus"></i> Add to cart</button>
+      <span [ngStyle]="{'color':prod.inStock > 0 ? 'green' : 'red'}">In stock: {{prod.inStock}}</span>
+    </div>
   </div>
-
-  <div>
-    <ul style="list-style-type:disc">
-      <h4>Ingredients:</h4>
-      <div *ngFor="let i of prod.ingredients">
-          <li>{{i}}</li>
-      </div>
-
-      <h4>Equivalents:</h4>
-      <div *ngFor="let j of prod.equivalents">
-        <li>{{j}}</li>
-      </div>
-    </ul>
-  </div> 
-  <p></p>
-  <div class="col-md-2">
-    
-    <button type="button" [attr.disabled]="prod.inStock === 0 ? true : null" class="btn btn-block" (click)="addToCart()"><i class="fas fa-cart-plus"></i> Add to cart</button>
-  </div>
-  <div [ngStyle]="{'color':prod.inStock > 0 ? 'green' : 'red'}">In stock: {{prod.inStock}}</div>
 </div>
