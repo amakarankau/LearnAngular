@@ -1,6 +1,19 @@
 .item-container {
+  margin-top: 10px;
+}
 
-        padding: 5px;
-        border: 1px solid #EFEFEF;
-        margin: 10px 0;
+.item-container>i {
+  vertical-align: sub;
+}
+
+.selected {
+  padding: 7px;
+  border: 1px solid #81aae9;
+  background-color: whitesmoke;
+}
+
+.unSelected {
+  padding: 7px;
+  border: 1px solid white;
+  background-color: white;
 }

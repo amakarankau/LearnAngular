@@ -1,5 +1,5 @@
 <div class = "cart-container">
-    <app-cart-item *ngFor="let item of cartItems" [currentItem] = "item" (increase)="upQuantity(item)" 
+    <app-cart-item #zzz *ngFor="let item of cartItems" [currentItem] = "item" (increase)="upQuantity(item)" 
     (decrease)="downQuantity(item)" (remove)="removeFromCart(item)"> </app-cart-item>
 </div>
 
