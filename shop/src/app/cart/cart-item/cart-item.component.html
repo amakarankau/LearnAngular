@@ -4,7 +4,7 @@
     'selected':selectedClass === 'selected',
     'unSelected':selectedClass === 'unSelected'
   }">
-    <span> {{ currentItem.product.name }} </span>
+    <span #productName> {{ currentItem.product.name }} </span>
     <button class="btn btn-outline-primary btn-sm" (click)="minusOne()">-</button>
     <input type="text" [(ngModel)]="currentItem.quantity">
     <button class="btn btn-outline-primary btn-sm" (click)="plusOne()">+</button>

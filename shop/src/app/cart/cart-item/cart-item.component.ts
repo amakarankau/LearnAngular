@@ -1,13 +1,15 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBinding, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBinding, ElementRef, Renderer, ViewChild } from '@angular/core';
 
 import { CartItem } from './cart-item.model';
+import { BoundElementPropertyAst } from '@angular/compiler';
+import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css']
 })
-export class CartItemComponent implements OnInit {
+export class CartItemComponent implements AfterViewInit {
 
   public selectedClass = 'unSelected';
 
@@ -16,6 +18,8 @@ export class CartItemComponent implements OnInit {
   @Output() public increase: EventEmitter<{}> = new EventEmitter();
   @Output() public decrease: EventEmitter<{}> = new EventEmitter();
   @Output() public remove: EventEmitter<{}> = new EventEmitter();
+
+  @ViewChild('productName') private variableInput: ElementRef;
 
   // @HostBinding('class.outlined') private isHovered: boolean;
 
@@ -53,7 +57,12 @@ export class CartItemComponent implements OnInit {
     this.remove.emit(this.currentItem);
   }
 
-  ngOnInit() {
+  childMethod(): void {
+    console.log('ViewChildTest ' + this.variableInput.nativeElement.innerText);
+  }
+
+  ngAfterViewInit() {
+    this.childMethod();
   }
 
 }
