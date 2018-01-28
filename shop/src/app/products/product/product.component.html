@@ -24,7 +24,6 @@
   <div class="col-md-2">
     
     <button type="button" [attr.disabled]="prod.inStock === 0 ? true : null" class="btn btn-block" (click)="addToCart()"><i class="fas fa-cart-plus"></i> Add to cart</button>
-    <span class="outOfStock" *ngIf="isOutOfStock()"> Out of stock</span>
   </div>
-  <div>In stock: {{prod.inStock}}</div>
+  <div [ngStyle]="{'color':prod.inStock > 0 ? 'green' : 'red'}">In stock: {{prod.inStock}}</div>
 </div>

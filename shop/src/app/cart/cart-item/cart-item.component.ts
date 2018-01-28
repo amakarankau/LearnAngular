@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBinding, ElementRef, Renderer } from '@angular/core';
+
 import { CartItem } from './cart-item.model';
 
 @Component({
@@ -16,9 +17,11 @@ export class CartItemComponent implements OnInit {
   @Output() public decrease: EventEmitter<{}> = new EventEmitter();
   @Output() public remove: EventEmitter<{}> = new EventEmitter();
 
+  // @HostBinding('class.outlined') private isHovered: boolean;
 
   @HostListener('mouseover') onMouseOver() {
     this.selectedClass = 'selected';
+    // this.isHovered = true;
 
     // const itemContainer = this.el.nativeElement.querySelector('.item-container');
     // this.renderer.setElementStyle(itemContainer, 'background-color', 'whitesmoke');
@@ -28,6 +31,7 @@ export class CartItemComponent implements OnInit {
 
   @HostListener('mouseout') onMouseOut() {
     this.selectedClass = 'unSelected';
+    // this.isHovered = false;
 
     // const itemContainer = this.el.nativeElement.querySelector('.item-container');
     // this.renderer.setElementStyle(itemContainer, 'background-color', 'white');
