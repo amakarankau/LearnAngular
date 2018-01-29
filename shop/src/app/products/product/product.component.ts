@@ -12,12 +12,15 @@ import { CartService } from '../../cart/cart.service';
 })
 export class ProductComponent implements OnInit {
 
-  @Input() public prod: Product;
-  @Input() public bookmarkStyle: string;
-  @Output() public event: EventEmitter<{}> = new EventEmitter();
+  @Input() prod: Product;
+  @Input() bookmarkStyle: string;
 
-  constructor (private cartService: CartService) {
+  @Output() event: EventEmitter<{}> = new EventEmitter();
 
+  constructor (private cartService: CartService) {}
+
+  ngOnInit (): void {
+    this.bookmarkStyle = this.prod.isBookmarked ? 'bookmark_active' : 'bookmark';
   }
 
   addToCart(): void {
@@ -30,7 +33,7 @@ export class ProductComponent implements OnInit {
     return this.prod.inStock <= 0;
   }
 
-  public toggleBookmarkStyle(): void {
+  toggleBookmarkStyle(): void {
     this.prod.isBookmarked = !this.prod.isBookmarked;
     if (this.bookmarkStyle === 'bookmark') {
       this.bookmarkStyle = 'bookmark_active';
@@ -38,9 +41,5 @@ export class ProductComponent implements OnInit {
       this.bookmarkStyle = 'bookmark';
     }
     console.log(this.prod.isBookmarked);
-  }
-
-  public ngOnInit (): void {
-    this.bookmarkStyle = this.prod.isBookmarked ? 'bookmark_active' : 'bookmark';
   }
 }

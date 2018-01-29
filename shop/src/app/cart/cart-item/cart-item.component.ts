@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBinding, ElementRef, Renderer, ViewChild } from '@angular/core';
+import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 import { CartItem } from './cart-item.model';
-import { BoundElementPropertyAst } from '@angular/compiler';
-import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-cart-item',
@@ -10,8 +9,6 @@ import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent implements OnInit, AfterViewInit {
-
-  public selectedClass = 'unSelected';
 
   @Input() public currentItem: CartItem;
   @Input() public bookmarkStyle: string;
@@ -21,13 +18,15 @@ export class CartItemComponent implements OnInit, AfterViewInit {
   @Output() public remove: EventEmitter<{}> = new EventEmitter();
 
   @ViewChild('productName') private variableInput: ElementRef;
+  @ViewChild('itemQuantity') private quantityInput: ElementRef;
 
   // @HostBinding('class.outlined') private isHovered: boolean;
+
+  selectedClass = 'unSelected';
 
   @HostListener('mouseover') onMouseOver() {
     this.selectedClass = 'selected';
     // this.isHovered = true;
-
     // const itemContainer = this.el.nativeElement.querySelector('.item-container');
     // this.renderer.setElementStyle(itemContainer, 'background-color', 'whitesmoke');
   // this.renderer.setElementProperty(itemContainer, '[ngStyle]', '{background-color: blue}');
@@ -37,7 +36,6 @@ export class CartItemComponent implements OnInit, AfterViewInit {
   @HostListener('mouseout') onMouseOut() {
     this.selectedClass = 'unSelected';
     // this.isHovered = false;
-
     // const itemContainer = this.el.nativeElement.querySelector('.item-container');
     // this.renderer.setElementStyle(itemContainer, 'background-color', 'white');
     // this.renderer.setElementProperty(itemContainer, 'ngStyle', 'selected');
@@ -45,6 +43,14 @@ export class CartItemComponent implements OnInit, AfterViewInit {
   }
 
   constructor(private el: ElementRef,  private renderer: Renderer) { }
+
+  ngAfterViewInit() {
+    this.childMethod();
+  }
+
+  ngOnInit (): void {
+    this.bookmarkStyle = this.currentItem.product.isBookmarked ? 'bookmark_active' : 'bookmark';
+  }
 
   plusOne(): void {
     this.increase.emit(this.currentItem);
@@ -62,11 +68,7 @@ export class CartItemComponent implements OnInit, AfterViewInit {
     console.log('ViewChildTest ' + this.variableInput.nativeElement.innerText);
   }
 
-  ngAfterViewInit() {
-    this.childMethod();
-  }
-
-  public toggleBookmarkStyle(): void {
+  toggleBookmarkStyle(): void {
     this.currentItem.product.isBookmarked = !this.currentItem.product.isBookmarked;
     if (this.bookmarkStyle === 'bookmark') {
       this.bookmarkStyle = 'bookmark_active';
@@ -76,8 +78,10 @@ export class CartItemComponent implements OnInit, AfterViewInit {
     console.log(this.currentItem.product.isBookmarked);
   }
 
-  public ngOnInit (): void {
-    this.bookmarkStyle = this.currentItem.product.isBookmarked ? 'bookmark_active' : 'bookmark';
+  validateInput() {
+    const input = parseInt(this.quantityInput.nativeElement.value, 10);
+    if ( input < 0 || isNaN (input)) {
+      this.currentItem.quantity = 0;
+    }
   }
-
 }

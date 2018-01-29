@@ -9,7 +9,7 @@ import { CartService } from './cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
 
   constructor(private cartService: CartService,  private router: Router) { }
 
@@ -20,8 +20,4 @@ export class CartComponent implements OnInit {
   showCart(): void {
     this.router.navigate(['/cartList']);
   }
-
-  ngOnInit(): void {
-  }
-
 }

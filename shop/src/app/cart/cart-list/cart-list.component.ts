@@ -26,6 +26,14 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
      this.cartItems = this.cartService.getCart();
   }
 
+  ngOnChanges() {
+    this.getTotalPrice();
+  }
+
+  ngAfterViewInit() {
+    // this.childCartItem.childMethod();
+  }
+
   removeFromCart(item: CartItem) {
     const currentItems = [...this.cartItems];
     const itemsWithoutRemoved = currentItems.filter(i => i.product.id !== item.product.id);
@@ -43,7 +51,6 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
       item.quantity++;
       item.product.inStock--;
     }
-
   }
 
   downQuantity(item: CartItem) {
@@ -56,16 +63,5 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   callChildMethod() {
     this.childCartItem.childMethod();
   }
-
-  ngOnChanges() {
-    this.getTotalPrice();
-  }
-
-
-  ngAfterViewInit() {
-    // this.childCartItem.childMethod();
-  }
-
-
 }
 
