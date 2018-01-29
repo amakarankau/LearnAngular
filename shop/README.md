@@ -12,4 +12,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 #Additionally implemented
 
-Added several methods in CartServise for further development i.e. adding and removing products in and from cart.
+Added ability to set Product as "bookmarked"

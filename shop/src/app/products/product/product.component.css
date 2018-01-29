@@ -20,3 +20,16 @@
 .buttonBlock {
   margin: 15px 0 10px 15px;
 }
+
+.bookmark {
+  padding-left: 15px;
+  color: #efefef;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.bookmark_active {
+  padding-left: 15px;
+  color: red;
+  cursor: pointer;
+  font-size: 2rem;
+}

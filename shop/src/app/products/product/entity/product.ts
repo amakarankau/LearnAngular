@@ -8,7 +8,7 @@ export interface IProduct {
     description: string;
     price: number;
     category: Category;
-    isAvailable: boolean;
+    isBookmarked: boolean;
     ingredients: Ingredient[];
     equivalents: Equivalent[];
     inStock: number;

@@ -10,7 +10,7 @@ export class Product implements IProduct {
         public description: string,
         public price: number,
         public category: Category,
-        public isAvailable: boolean,
+        public isBookmarked: boolean,
         public ingredients: Ingredient[],
         public equivalents: Equivalent[],
         public inStock: number
@@ -20,7 +20,7 @@ export class Product implements IProduct {
          this.description = description;
          this.price = price;
          this.category = category;
-         this.isAvailable = isAvailable;
+         this.isBookmarked = isBookmarked;
          this.ingredients = ingredients;
          this.equivalents = equivalents;
          this.inStock = inStock;

@@ -9,11 +9,12 @@ import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css']
 })
-export class CartItemComponent implements AfterViewInit {
+export class CartItemComponent implements OnInit, AfterViewInit {
 
   public selectedClass = 'unSelected';
 
   @Input() public currentItem: CartItem;
+  @Input() public bookmarkStyle: string;
 
   @Output() public increase: EventEmitter<{}> = new EventEmitter();
   @Output() public decrease: EventEmitter<{}> = new EventEmitter();
@@ -63,6 +64,20 @@ export class CartItemComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.childMethod();
+  }
+
+  public toggleBookmarkStyle(): void {
+    this.currentItem.product.isBookmarked = !this.currentItem.product.isBookmarked;
+    if (this.bookmarkStyle === 'bookmark') {
+      this.bookmarkStyle = 'bookmark_active';
+    } else {
+      this.bookmarkStyle = 'bookmark';
+    }
+    console.log(this.currentItem.product.isBookmarked);
+  }
+
+  public ngOnInit (): void {
+    this.bookmarkStyle = this.currentItem.product.isBookmarked ? 'bookmark_active' : 'bookmark';
   }
 
 }

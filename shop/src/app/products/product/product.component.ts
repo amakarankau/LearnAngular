@@ -13,6 +13,7 @@ import { CartService } from '../../cart/cart.service';
 export class ProductComponent implements OnInit {
 
   @Input() public prod: Product;
+  @Input() public bookmarkStyle: string;
   @Output() public event: EventEmitter<{}> = new EventEmitter();
 
   constructor (private cartService: CartService) {
@@ -29,6 +30,17 @@ export class ProductComponent implements OnInit {
     return this.prod.inStock <= 0;
   }
 
-  ngOnInit(): void {
+  public toggleBookmarkStyle(): void {
+    this.prod.isBookmarked = !this.prod.isBookmarked;
+    if (this.bookmarkStyle === 'bookmark') {
+      this.bookmarkStyle = 'bookmark_active';
+    } else {
+      this.bookmarkStyle = 'bookmark';
+    }
+    console.log(this.prod.isBookmarked);
+  }
+
+  public ngOnInit (): void {
+    this.bookmarkStyle = this.prod.isBookmarked ? 'bookmark_active' : 'bookmark';
   }
 }

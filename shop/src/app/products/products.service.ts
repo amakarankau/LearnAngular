@@ -20,7 +20,7 @@ export class ProductsService {
       ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \
       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla \
       pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-      1.11, Category.Category1, true, [Ingredient.Ingredient1, Ingredient.Ingredient3], [Equivalent.Equivalent1], 1000),
+      1.11, Category.Category1, false, [Ingredient.Ingredient1, Ingredient.Ingredient3], [Equivalent.Equivalent1], 1000),
       new Product(2, 'Product2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt \
       ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \
       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla \
@@ -35,7 +35,7 @@ export class ProductsService {
       ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \
       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla \
       pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-      4.44, Category.Category3, true, [Ingredient.Ingredient3, Ingredient.Ingredient4], [Equivalent.Equivalent2], 500),
+      4.44, Category.Category3, false, [Ingredient.Ingredient3, Ingredient.Ingredient4], [Equivalent.Equivalent2], 500),
     ];
   }
 }
