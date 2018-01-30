@@ -59,9 +59,10 @@ Todo:
           {path: '', component: HomeComponent},```
 
   ☐ нормально организовать бранчевание
-  ☐ переделать ViewChild по примеру с лекции
-   @ViewChild('name') возвращает ElementRef. работает с #name из темплэйта этого же компонента ? почесу тогда ViewChild ?
-   @ViewChild(ComponentClass) достает ComponentClass и дает возможность выцзвать метод
+  ☐ сделать пример с HostBinding
+  ✔ переделать ViewChild по примеру с лекции @done(18-01-31 00:23)
+   ✔ @ViewChild('name') возвращает ElementRef. работает с #name из темплэйта этого же компонента ? почесу тогда ViewChild ? @done(18-01-31 00:23)
+   ✔ @ViewChild(ComponentClass) достает ComponentClass и дает возможность выцзвать метод @done(18-01-31 00:23)
   Task3:
 
   
