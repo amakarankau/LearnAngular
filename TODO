@@ -59,6 +59,7 @@ Todo:
           {path: '', component: HomeComponent},```
 
   ☐ нормально организовать бранчевание
+  ☐ убрать папку shop 
   ☐ сделать пример с HostBinding
   ✔ переделать ViewChild по примеру с лекции @done(18-01-31 00:23)
    ✔ @ViewChild('name') возвращает ElementRef. работает с #name из темплэйта этого же компонента ? почесу тогда ViewChild ? @done(18-01-31 00:23)
