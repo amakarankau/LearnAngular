@@ -1,0 +1,65 @@
+Projects:
+  ☐ Anything with a colon at the end of the line is a project title
+  ☐ You can nest projects inside each other
+  Nested:
+    ☐ You can fold projects
+
+Todos:
+  You can write plain text as notes or descriptions wherever you want
+  New:
+    ☐ Press Cmd/Ctrl+Enter to add a new todo
+  Done:
+    ✔ Press Alt+D to mark a todo as done
+    ✔ Press it again to undo the action
+  Cancel:
+    ✘ Press Alt+C to mark a todo as cancelled
+    ✘ Press it again to undo the action
+  Tagging:
+    ☐ You can add tags using the @ sign, like this @tag
+    ☐ There are some special, customizable tags: @critical @high @low @today
+  Timekeeping:
+    ✔ Completed todos can show a timestamp @done(17-11-03 10:42)
+    ☐ Press Alt+S to mark a todo as started @started(17-11-03 10:42)
+      ✔ Now it will show the elapsed time @started(17-11-03 10:42) @done(17-11-03 20:11) @lasted(9 hours 29 minutes)
+
+Style:
+  We support a markdown-like syntax for styling text
+  Bold:
+    ☐ Use asterisks for *bold*
+  Italic:
+    ☐ Use underscores for _italic_
+  Strikethrough:
+    ☐ Use tildes for ~strikethrough~
+
+Code:
+  ☐ You can embed custom `code` pretty much anywhere
+  ☐ Even ```
+      multi-line
+      code blocks
+      are supported
+    ```
+
+'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
+'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
+'Alt+D' // Triggers `Todo: Toggle Done`
+'Alt+C' // Triggers `Todo: Toggle Cancel`
+'Alt+S' // Triggers `Todo: Start`
+
+
+Todo:
+  Task1:
+    ☐ комменты с гитхаба
+  Task2:
+  ☐ Разобраться с модулями - почему в app.module нужно указывать конкретные компоненты и нельзя ли модули в которых они объявлены
+       ``` import { HomeComponent } from './home/home.component';
+        import { NavBarModule } from './navbar/navbar.module';
+
+        export const routeList: Routes = [
+          {path: '', component: HomeComponent},```
+
+  ☐ нормально организовать бранчевание
+  ☐ переделать ViewChild по примеру с лекции
+  Task3:
+    
+  
+
