@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { forEach } from '@angular/router/src/utils/collection';
 import { OnChanges, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -16,7 +16,10 @@ import { CartItem } from '../cart-item/cart-item.model';
 export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
   @ViewChild(CartItemComponent)
-  private childCartItem: CartItemComponent;
+  private appCart: CartItemComponent;
+
+  @ViewChild('testChild')
+  private testChild: ElementRef;
 
   cartItems: CartItem[] = [];
 
@@ -31,7 +34,8 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // this.childCartItem.childMethod();
+    console.log('Get ViewChild by # ' + (<HTMLInputElement>this.testChild.nativeElement).innerText);
+    this.appCart.childMethodCalledFromParent();
   }
 
   removeFromCart(item: CartItem) {
@@ -60,8 +64,5 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
-  callChildMethod() {
-    this.childCartItem.childMethod();
-  }
 }
 

@@ -65,7 +65,11 @@ export class CartItemComponent implements OnInit, AfterViewInit {
   }
 
   childMethod(): void {
-    console.log('ViewChildTest ' + this.variableInput.nativeElement.innerText);
+    console.log('ViewChildTest - get by # ' + this.variableInput.nativeElement.innerText);
+  }
+
+  childMethodCalledFromParent(): void {
+    console.log('ViewChildTest - call from Parent');
   }
 
   toggleBookmarkStyle(): void {
