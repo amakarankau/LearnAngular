@@ -64,5 +64,10 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
+  clearCart() {
+    this.cartService.clearCart();
+    this.cartItems = [];
+  }
+
 }
 

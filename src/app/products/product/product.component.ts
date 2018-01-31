@@ -12,6 +12,7 @@ import { CartService } from '../../cart/index';
 })
 export class ProductComponent implements OnInit {
 
+  @Input() productQuantity: number;
   @Input() prod: Product;
   @Input() bookmarkStyle: string;
 
@@ -25,7 +26,7 @@ export class ProductComponent implements OnInit {
 
   addToCart(): void {
     if (!this.isOutOfStock()) {
-     this.cartService.addToCart(this.prod);
+     this.cartService.addToCart(this.prod, this.productQuantity);
     }
   }
 

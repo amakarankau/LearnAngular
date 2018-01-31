@@ -26,10 +26,21 @@
           </div>
         </ul>
     </div>
-    <div class="col-4 buttonBlock">
+  </div>
+  <div class="row buttonBlock">
+    <div class="col-2">
       <button type="button" [attr.disabled]="prod.inStock === 0 ? true : null" class="btn" (click)="addToCart()">
         <i class="fas fa-cart-plus"></i> Add to cart</button>
-      <span [ngStyle]="{'color':prod.inStock > 0 ? 'green' : 'red'}">In stock: {{prod.inStock}}</span>
+    </div>
+    <div class="col-3">
+      <div class="input-group">
+        <input type="text" [(ngModel)]="productQuantity">
+      </div>
+    </div>
+    <div class="col-3" [ngStyle]="{'color':prod.inStock > 0 ? 'green' : 'red'}">
+      In stock: {{prod.inStock}}
     </div>
   </div>
 </div>
+
+

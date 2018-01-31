@@ -14,16 +14,20 @@ export class CartService {
         return this.cartList;
     }
 
-    addToCart(product: Product) {
+    addToCart(product: Product, quantity?: number) {
         const cart = this.cartList;
         let item = cart.find((p) => p.product.id === product.id);
         if (item === undefined) {
-          item = new CartItem(product, 1);
+          item = new CartItem(product, quantity || 1);
           cart.push(item);
         } else {
-            item.quantity += 1;
+            item.quantity += quantity || 1;
         }
         this.getTotalPrice();
+    }
+
+    getItemsNumber() {
+        return this.cartList.length;
     }
 
     removeFromCart(id: number): void {
@@ -42,6 +46,11 @@ export class CartService {
         let total = 0;
         this.cartList.forEach((item) => total += item.price * item.quantity);
         return Math.round(total * 100) / 100;
+    }
+
+    clearCart() {
+        this.cartList = [];
+        this.getTotalPrice();
     }
 
     isEmptyCart(): boolean {
