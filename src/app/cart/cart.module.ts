@@ -8,9 +8,6 @@ import { CartService } from './cart.service';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartListComponent } from './cart-list/cart-list.component';
 
-
-
-
 @NgModule({
   declarations: [CartComponent, CartItemComponent, CartListComponent],
   imports: [CommonModule, RouterModule, FormsModule],

@@ -4,7 +4,7 @@ import { OnChanges, AfterViewInit } from '@angular/core/src/metadata/lifecycle_h
 
 import { CartService } from '../cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
-import { Product } from '../../products/product/entity/product-model';
+import { Product } from '../../products/index';
 import { CartItem } from '../cart-item/cart-item.model';
 
 

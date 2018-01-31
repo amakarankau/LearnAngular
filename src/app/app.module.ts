@@ -8,11 +8,11 @@ import { AppComponent } from './app.component';
 
 import { ProductsModule } from './products/index';
 import { CartModule } from './cart/index';
-import { CartListComponent } from './cart/cart-list/cart-list.component';
+import { CartListComponent } from './cart/index';
 
 import { NoContentComponent } from './no-content/no-content.component';
-import { HomeComponent } from './home/home.component';
-import { NavBarModule } from './navbar/navbar.module';
+import { HomeComponent } from './home/index';
+import { NavBarModule } from './navbar/index';
 
 export const routeList: Routes = [
   {path: '', component: HomeComponent},
