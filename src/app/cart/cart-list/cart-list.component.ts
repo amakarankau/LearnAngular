@@ -6,6 +6,7 @@ import { CartService } from '../cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
 import { CartItem } from '../cart-item/cart-item.model';
+import { GeneratorService } from '../../utils/index';
 
 
 @Component({
@@ -21,9 +22,12 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   @ViewChild('testChild')
   private testChild: ElementRef;
 
+  @ViewChild('stringLength')
+  private stringLength: ElementRef;
+
   cartItems: CartItem[] = [];
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private generatorService: GeneratorService) { }
 
   ngOnInit() {
      this.cartItems = this.cartService.getCart();
@@ -67,6 +71,10 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   clearCart() {
     this.cartService.clearCart();
     this.cartItems = [];
+  }
+
+  getString() {
+    this.generatorService.getString(this.stringLength.nativeElement.value);
   }
 
 }
