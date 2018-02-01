@@ -65,6 +65,16 @@ Todo:
    ✔ @ViewChild('name') возвращает ElementRef. работает с #name из темплэйта этого же компонента ? почесу тогда ViewChild ? @done(18-01-31 00:23)
    ✔ @ViewChild(ComponentClass) достает ComponentClass и дает возможность выцзвать метод @done(18-01-31 00:23)
   Task3:
+    ☐ localStorage ```//создадим объект
+    var obj = {
+      item1: 1,
+      item2: [123, "two", 3.0],
+      item3:"hello"
+    };
+    var serialObj = JSON.stringify(obj); //сериализуем его
+    localStorage.setItem("myKey", serialObj); //запишем его в хранилище по ключу "myKey"
+    var returnObj = JSON.parse(localStorage.getItem("myKey")) //спарсим его обратно объект```
+
 
   
 

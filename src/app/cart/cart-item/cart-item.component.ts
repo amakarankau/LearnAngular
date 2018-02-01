@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBindi
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 import { CartItem } from './cart-item.model';
+import { LocalStorageService } from '../../utils/local-storage.service';
+import { Product } from '../../products/product/entity/product-model';
 
 @Component({
   selector: 'app-cart-item',
@@ -42,7 +44,7 @@ export class CartItemComponent implements OnInit, AfterViewInit {
     // this.renderer.setElementAttribute(itemContainer, 'class', 'unSelected');
   }
 
-  constructor(private el: ElementRef,  private renderer: Renderer) { }
+  constructor(private el: ElementRef,  private renderer: Renderer, private storageService: LocalStorageService) { }
 
   ngAfterViewInit() {
     this.childMethod();
@@ -88,4 +90,24 @@ export class CartItemComponent implements OnInit, AfterViewInit {
       this.currentItem.quantity = 0;
     }
   }
+
+  setToStore() {
+    console.log('Set item');
+    this.storageService.setItem(this.currentItem.product.name, this.currentItem);
+    console.log(localStorage);
+   }
+  getFromStore() {
+    console.log('Get item');
+    const item = this.storageService.getItem(this.currentItem.product.name);
+    console.log(item);
+  }
+  removeFromStore() {
+    console.log('Before remove item');
+    console.log(localStorage);
+    this.storageService.removeItem(this.currentItem.product.name);
+    console.log('After remove item');
+    console.log(localStorage);
+   }
+
+
 }
