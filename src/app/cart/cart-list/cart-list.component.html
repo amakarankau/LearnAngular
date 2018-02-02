@@ -9,16 +9,46 @@
     <div class="col-2">
         <button class="btn" (click)='clearCart()'>Clear Cart</button>
     </div>
-    <div class="col-3">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary btn-sm" (click)='getString()'>Random String</button>
-            </div>
-            <input #stringLength type="text" class="form-control">
-        </div>
-    </div>
-    <div class="col-2">See console</div>
 </div>
 
+<div class="container mt-5">
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary btn-sm" (click)='getString()'>Random String</button>
+                </div>
+                <input #stringLength type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-2">See console</div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary btn-sm" (click)='getConstant()'>Get Constant</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">See console</div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-6">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary btn-sm" (click)='saveConfigOption()'>Save config key and value</button>
+                </div>
+                <input #configKey type="text" placeholder="key" class="form-control">
+                <input #configValue type="text" placeholder="value" class="form-control">
+            </div>
+        </div>
+        <div class="col-2">See console</div>
+    </div>
+
+</div>
 
 

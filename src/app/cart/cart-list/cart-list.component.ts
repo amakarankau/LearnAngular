@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Optional } from '@angular/core';
 import { forEach } from '@angular/router/src/utils/collection';
 import { OnChanges, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -6,7 +6,7 @@ import { CartService } from '../cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
 import { CartItem } from '../cart-item/cart-item.model';
-import { GeneratorService } from '../../utils/index';
+import { GeneratorService, ConfigOptionsService, ConstantsService } from '../../utils/index';
 
 
 @Component({
@@ -25,9 +25,17 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   @ViewChild('stringLength')
   private stringLength: ElementRef;
 
+  @ViewChild('configKey')
+  private configKey: ElementRef;
+
+  @ViewChild('configValue')
+  private configValue: ElementRef;
+
+
   cartItems: CartItem[] = [];
 
-  constructor(private cartService: CartService, private generatorService: GeneratorService) { }
+  constructor(private cartService: CartService, private generatorService: GeneratorService,
+    @Optional() private configOptionsService: ConfigOptionsService, @Optional() private constantService: ConstantsService) { }
 
   ngOnInit() {
      this.cartItems = this.cartService.getCart();
@@ -75,6 +83,15 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
   getString() {
     this.generatorService.getString(this.stringLength.nativeElement.value);
+  }
+
+  getConstant() {
+    console.log(ConstantsService.CONSTANT);
+  }
+
+  saveConfigOption() {
+    this.configOptionsService.setToConfig(this.configKey.nativeElement.value, this.configValue.nativeElement.value);
+    this.configOptionsService.printConfig();
   }
 
 }

@@ -19,4 +19,8 @@ export class ConfigOptionsService {
     return this.configMap;
   }
 
+  printConfig() {
+    this.configMap.forEach((value, key) => console.log(`${key} => ${value}`));
+  }
+
 }
