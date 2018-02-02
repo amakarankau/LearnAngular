@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Optional } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Optional, Provider, Inject } from '@angular/core';
 import { forEach } from '@angular/router/src/utils/collection';
 import { OnChanges, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -6,7 +6,7 @@ import { CartService } from '../cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
 import { CartItem } from '../cart-item/cart-item.model';
-import { GeneratorService, ConfigOptionsService, ConstantsService } from '../../utils/index';
+import { GeneratorService, ConfigOptionsService, ConstantsService, GeneratorServiceFactory, TokenFromFactory } from '../../utils';
 
 const sInstance1 = new ConstantsService();
 const sInstance2 = new ConfigOptionsService();
@@ -16,7 +16,8 @@ const sInstance2 = new ConfigOptionsService();
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css'],
   providers: [
-    { provide: ConstantsService, useValue: sInstance2 }
+    { provide: ConstantsService, useValue: sInstance2 },
+    { provide: TokenFromFactory, useFactory:  GeneratorServiceFactory(3), deps: [ GeneratorService ] }
   ]
 })
 export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
@@ -39,8 +40,9 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
   cartItems: CartItem[] = [];
 
-  constructor(private cartService: CartService, private generatorService: GeneratorService,
-    @Optional() private configOptionsService: ConfigOptionsService, @Optional() private constansService: ConstantsService) { }
+  constructor(private cartService: CartService,  @Inject(TokenFromFactory) private factoryGeneratorService: string,
+   private trueGeneratorService: GeneratorService, @Optional() private configOptionsService: ConfigOptionsService,
+   @Optional() private constansService: ConstantsService) { }
 
   ngOnInit() {
      this.cartItems = this.cartService.getCart();
@@ -87,7 +89,8 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   getString() {
-    this.generatorService.getString(this.stringLength.nativeElement.value);
+    console.log('From true GeneratorService: ' + this.trueGeneratorService.getString(this.stringLength.nativeElement.value));
+    console.log('From factory of GeneratorService: ' + this.factoryGeneratorService);
   }
 
   getConstant() {
