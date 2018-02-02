@@ -8,11 +8,16 @@ import { Product } from '../../products/index';
 import { CartItem } from '../cart-item/cart-item.model';
 import { GeneratorService, ConfigOptionsService, ConstantsService } from '../../utils/index';
 
+const sInstance1 = new ConstantsService();
+const sInstance2 = new ConfigOptionsService();
 
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.css']
+  styleUrls: ['./cart-list.component.css'],
+  providers: [
+    { provide: ConstantsService, useValue: sInstance2 }
+  ]
 })
 export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
@@ -35,7 +40,7 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   cartItems: CartItem[] = [];
 
   constructor(private cartService: CartService, private generatorService: GeneratorService,
-    @Optional() private configOptionsService: ConfigOptionsService, @Optional() private constantService: ConstantsService) { }
+    @Optional() private configOptionsService: ConfigOptionsService, @Optional() private constansService: ConstantsService) { }
 
   ngOnInit() {
      this.cartItems = this.cartService.getCart();
@@ -86,6 +91,7 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   getConstant() {
+    this.constansService.getServiceName();
     console.log(ConstantsService.CONSTANT);
   }
 
