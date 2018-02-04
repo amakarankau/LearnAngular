@@ -6,8 +6,8 @@ import { CartService } from '../cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
 import { CartItem } from '../cart-item/cart-item.model';
-import { GeneratorService, ConfigOptionsService, ConstantsService, GeneratorServiceFactory, TokenFromFactory } from '../../utils';
-import { UtilsModule } from '../../utils/utils.module';
+import { GeneratorService, ConfigOptionsService, ConstantsService, GeneratorServiceFactory, TokenFromFactory } from '../../shared';
+import { SharedModule } from '../../shared';
 
 const sInstance1 = new ConstantsService();
 const sInstance2 = new ConfigOptionsService();

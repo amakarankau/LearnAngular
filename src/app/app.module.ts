@@ -6,14 +6,13 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { ProductsModule } from './products/index';
-import { CartModule } from './cart/index';
-import { CartListComponent } from './cart/index';
+import { ProductsModule } from './products';
+import { CartModule, CartListComponent } from './cart';
 
 import { NoContentComponent } from './no-content/no-content.component';
-import { HomeComponent } from './home/index';
-import { NavBarModule } from './navbar/index';
-import { UtilsModule } from './utils/index';
+import { HomeComponent } from './home';
+import { NavBarModule } from './navbar';
+import { SharedModule } from './shared';
 
 export const routeList: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +27,7 @@ export const routeList: Routes = [
     HomeComponent
   ],
   imports: [
-    UtilsModule,
+    SharedModule,
     NavBarModule,
     BrowserModule,
     CartModule,
