@@ -3,7 +3,7 @@
     (decrease)="downQuantity(item)" (remove)="removeFromCart(item)"> </app-cart-item>
 </div>
 
-<p #testChild class = "total" >Total: {{ getTotalPrice() }}</p>
+<p [appTxtSize]='txtSize' (click)="clickText()" #testChild class="total" >Total: {{ getTotalPrice() }}</p>
 
 <div class="row">
     <div class="col-2">

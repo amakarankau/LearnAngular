@@ -7,6 +7,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
 import { CartItem } from '../cart-item/cart-item.model';
 import { GeneratorService, ConfigOptionsService, ConstantsService, GeneratorServiceFactory, TokenFromFactory } from '../../utils';
+import { UtilsModule } from '../../utils/utils.module';
 
 const sInstance1 = new ConstantsService();
 const sInstance2 = new ConfigOptionsService();
@@ -37,6 +38,8 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   @ViewChild('configValue')
   private configValue: ElementRef;
 
+  clicked = true;
+  txtSize = '25px';
 
   cartItems: CartItem[] = [];
 
@@ -102,6 +105,13 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
     this.configOptionsService.setToConfig(this.configKey.nativeElement.value, this.configValue.nativeElement.value);
     this.configOptionsService.printConfig();
   }
-
+  clickText() {
+    this.clicked = !this.clicked;
+    if (this.clicked) {
+      this.txtSize = '25px';
+    } else {
+      this.txtSize = '16px';
+    }
+  }
 }
 
