@@ -28,20 +28,10 @@ export class CartItemComponent implements OnInit, AfterViewInit {
 
   @HostListener('mouseover') onMouseOver() {
     this.selectedClass = 'selected';
-    // this.isHovered = true;
-    // const itemContainer = this.el.nativeElement.querySelector('.item-container');
-    // this.renderer.setElementStyle(itemContainer, 'background-color', 'whitesmoke');
-  // this.renderer.setElementProperty(itemContainer, '[ngStyle]', '{background-color: blue}');
-  //  this.renderer.setElementAttribute(itemContainer, 'class', 'selected');
   }
 
   @HostListener('mouseout') onMouseOut() {
     this.selectedClass = 'unSelected';
-    // this.isHovered = false;
-    // const itemContainer = this.el.nativeElement.querySelector('.item-container');
-    // this.renderer.setElementStyle(itemContainer, 'background-color', 'white');
-    // this.renderer.setElementProperty(itemContainer, 'ngStyle', 'selected');
-    // this.renderer.setElementAttribute(itemContainer, 'class', 'unSelected');
   }
 
   constructor(private el: ElementRef,  private renderer: Renderer, private storageService: LocalStorageService) { }

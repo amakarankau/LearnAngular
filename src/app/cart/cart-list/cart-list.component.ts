@@ -61,8 +61,7 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   removeFromCart(item: CartItem) {
-    const currentItems = [...this.cartItems];
-    const itemsWithoutRemoved = currentItems.filter(i => i.product.id !== item.product.id);
+    const itemsWithoutRemoved = this.cartItems.filter(i => i.product.id !== item.product.id);
     this.cartItems = itemsWithoutRemoved;
     this.cartService.updateCartContent(this.cartItems);
     this.getTotalPrice();
@@ -72,14 +71,14 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
     return this.cartService.getTotalPrice();
   }
 
-  upQuantity(item: CartItem) {
+  onIncrease(item: CartItem) {
     if (item.product.inStock > 0 ) {
       item.quantity++;
       item.product.inStock--;
     }
   }
 
-  downQuantity(item: CartItem) {
+  onDecrease(item: CartItem) {
     if (item.quantity !== 0) {
       item.quantity--;
       item.product.inStock++;

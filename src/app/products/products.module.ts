@@ -13,7 +13,7 @@ import { Product } from './product/entity/product-model';
     CommonModule
   ],
   declarations: [ProductListComponent, ProductComponent],
-  exports: [ProductListComponent, ProductComponent],
+  exports: [ProductListComponent],
   providers: [ProductsService]
 })
 export class ProductsModule { }

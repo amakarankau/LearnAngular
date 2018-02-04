@@ -12,6 +12,7 @@ import { CartService } from '../../cart/index';
 })
 export class ProductComponent implements OnInit {
 
+  @Input() inStockColor: string;
   @Input() productQuantity: number;
   @Input() prod: Product;
   @Input() bookmarkStyle: string;
@@ -22,6 +23,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit (): void {
     this.bookmarkStyle = this.prod.isBookmarked ? 'bookmark_active' : 'bookmark';
+    this.prod.inStock > 0 ? this.inStockColor = 'green' : this.inStockColor = 'red';
   }
 
   addToCart(): void {

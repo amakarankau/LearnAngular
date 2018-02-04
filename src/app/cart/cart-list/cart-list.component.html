@@ -1,6 +1,6 @@
 <div class = "cart-container">
-    <app-cart-item #appCart *ngFor="let item of cartItems" [currentItem] = "item" (increase)="upQuantity(item)" 
-    (decrease)="downQuantity(item)" (remove)="removeFromCart(item)"> </app-cart-item>
+    <app-cart-item #appCart *ngFor="let item of cartItems" [currentItem] = "item" (increase)="onIncrease(item)"
+    (decrease)="onDecrease(item)" (remove)="removeFromCart(item)"> </app-cart-item>
 </div>
 
 <p [appTxtSize]='txtSize' (click)="clickText()" #testChild class="total" >Total: {{ getTotalPrice() }}</p>

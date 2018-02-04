@@ -29,7 +29,7 @@
   </div>
   <div class="row buttonBlock">
     <div class="col-2">
-      <button type="button" [attr.disabled]="prod.inStock === 0 ? true : null" class="btn" (click)="addToCart()">
+      <button type="button" [disabled]="isOutOfStock()" class="btn" (click)="addToCart()">
         <i class="fas fa-cart-plus"></i> Add to cart</button>
     </div>
     <div class="col-3">
@@ -37,7 +37,7 @@
         <input type="text" [(ngModel)]="productQuantity">
       </div>
     </div>
-    <div class="col-3" [ngStyle]="{'color':prod.inStock > 0 ? 'green' : 'red'}">
+    <div class="col-3" [ngStyle]="{'color':inStockColor}">
       In stock: {{prod.inStock}}
     </div>
   </div>
