@@ -7,12 +7,13 @@ import { GeneratorService } from './services/generator.service';
 import { LocalStorageService } from './services/local-storage.service';
 
 import { TxtSizeDirective } from './directives/txt-size.directive';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [TxtSizeDirective],
+  declarations: [TxtSizeDirective, OrderByPipe],
   exports: [TxtSizeDirective],
   providers: [LocalStorageService, GeneratorService, ConstantsService, ConfigOptionsService]
 })
