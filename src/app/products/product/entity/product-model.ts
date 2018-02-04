@@ -14,15 +14,5 @@ export class Product implements IProduct {
         public ingredients: Ingredient[],
         public equivalents: Equivalent[],
         public inStock: number
-       ) {
-         this.id = id;
-         this.name = name;
-         this.description = description;
-         this.price = price;
-         this.category = category;
-         this.isBookmarked = isBookmarked;
-         this.ingredients = ingredients;
-         this.equivalents = equivalents;
-         this.inStock = inStock;
-       }
+       ) { }
 }
