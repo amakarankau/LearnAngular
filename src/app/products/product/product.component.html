@@ -3,12 +3,12 @@
     <div class="col-9">
       <ul>
         <li class="productName">
-          {{prod.name}} <span [ngClass]="bookmarkStyle" (click)="toggleBookmarkStyle()"><i class="far fa-bookmark fa-xs"></i></span>
+          {{prod.name | uppercase}} <span [ngClass]="bookmarkStyle" (click)="toggleBookmarkStyle()"><i class="far fa-bookmark fa-xs"></i></span>
         </li>
         <li>
             <strong>Description: </strong> {{prod.description}}</li>
         <li>
-            <strong>Price: </strong>{{prod.price}}</li>
+            <strong>Price: </strong>{{prod.price | currency:'USD'}}</li>
       </ul>
     </div>
     <div class="col-3">
