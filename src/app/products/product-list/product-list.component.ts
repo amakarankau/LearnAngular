@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { ProductsService } from '../products.service';
@@ -13,7 +14,7 @@ export class ProductListComponent implements OnInit {
 
   @Input() public productComponent: ProductComponent;
 
-  products: Product[];
+  products: Observable<Product[]>;
 
   constructor(private productsService: ProductsService) {}
 
