@@ -1,5 +1,15 @@
+<div class="row">
+  <div class="offset-md-9">
+    <div class="btn-group mr-2" role="group">
+      <button class="btn btn-outline-secondary btn-sm" (click)='sortByName()'>By Name<i class="fas fa-sort fa-sm"></i></button>
+      <button class="btn btn-outline-secondary btn-sm" (click)='sortByPrice()'>By Price<i class="fas fa-sort fa-sm"></i></button>
+      <button class="btn btn-outline-secondary btn-sm" (click)='sortByQuantity()'>By Quantity<i class="fas fa-sort fa-sm"></i></button>
+    </div>
+  </div>
+</div>
+
 <div class = "cart-container">
-    <app-cart-item #appCart *ngFor="let item of cartItems | orderBy:'price':'asc'" [currentItem] = "item" (increase)="onIncrease(item)"
+    <app-cart-item #appCart *ngFor="let item of cartItems | orderBy:'name':'desc'" [currentItem] = "item" (increase)="onIncrease(item)"
     (decrease)="onDecrease(item)" (remove)="removeFromCart(item)"> </app-cart-item>
 </div>
 

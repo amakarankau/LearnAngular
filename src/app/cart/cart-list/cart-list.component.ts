@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Optional, Provider, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Optional, Provider, Inject, PipeTransform } from '@angular/core';
 import { forEach } from '@angular/router/src/utils/collection';
 import { OnChanges, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -42,13 +42,13 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
   clicked = true;
   txtSize = '25px';
-  qqq = 'quantity';
 
   cartItems: CartItem[] = [];
+  private ascFlag = 'desc';
 
-  constructor(private cartService: CartService, orderByPipe: OrderByPipe, @Inject(TokenFromFactory) private factoryGeneratorService: string,
-   private trueGeneratorService: GeneratorService, @Optional() private configOptionsService: ConfigOptionsService,
-   @Optional() private constansService: ConstantsService) { }
+  constructor(private cartService: CartService, private orderByPipe: OrderByPipe,
+   @Inject(TokenFromFactory) private factoryGeneratorService: string, private trueGeneratorService: GeneratorService,
+   @Optional() private configOptionsService: ConfigOptionsService, @Optional() private constansService: ConstantsService) { }
 
   ngOnInit() {
      this.cartItems = this.cartService.getCart();
@@ -113,6 +113,29 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
       this.txtSize = '25px';
     } else {
       this.txtSize = '16px';
+    }
+  }
+
+  sortByName() {
+    this.orderByPipe.transform(this.cartItems, 'name', this.ascFlag);
+    this.toggleAscFlag();
+  }
+
+  sortByQuantity() {
+    this.orderByPipe.transform(this.cartItems, 'quantity', this.ascFlag);
+    this.toggleAscFlag();
+  }
+
+  sortByPrice() {
+    this.orderByPipe.transform(this.cartItems, 'price', this.ascFlag);
+    this.toggleAscFlag();
+  }
+
+  private toggleAscFlag() {
+    if (this.ascFlag === 'asc') {
+      this.ascFlag = 'desc';
+    } else {
+      this.ascFlag = 'asc';
     }
   }
 }
