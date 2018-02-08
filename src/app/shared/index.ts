@@ -5,6 +5,7 @@ export * from './services/constants.service';
 export * from './services/generator.service';
 export * from './services/generator-service.factory';
 export * from './directives/txt-size.directive';
+export * from './pipes/order-by.pipe';
 
 
 

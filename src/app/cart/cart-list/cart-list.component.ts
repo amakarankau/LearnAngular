@@ -8,6 +8,7 @@ import { Product } from '../../products/index';
 import { CartItem } from '../cart-item/cart-item.model';
 import { GeneratorService, ConfigOptionsService, ConstantsService, GeneratorServiceFactory, TokenFromFactory } from '../../shared';
 import { SharedModule } from '../../shared';
+import { OrderByPipe } from '../../shared';
 
 const sInstance1 = new ConstantsService();
 const sInstance2 = new ConfigOptionsService();
@@ -17,6 +18,7 @@ const sInstance2 = new ConfigOptionsService();
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css'],
   providers: [
+    OrderByPipe,
     { provide: ConstantsService, useValue: sInstance2 },
     { provide: TokenFromFactory, useFactory:  GeneratorServiceFactory(3), deps: [ GeneratorService ] }
   ]
@@ -40,10 +42,11 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
   clicked = true;
   txtSize = '25px';
+  qqq = 'quantity';
 
   cartItems: CartItem[] = [];
 
-  constructor(private cartService: CartService,  @Inject(TokenFromFactory) private factoryGeneratorService: string,
+  constructor(private cartService: CartService, orderByPipe: OrderByPipe, @Inject(TokenFromFactory) private factoryGeneratorService: string,
    private trueGeneratorService: GeneratorService, @Optional() private configOptionsService: ConfigOptionsService,
    @Optional() private constansService: ConstantsService) { }
 
