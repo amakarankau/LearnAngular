@@ -46,9 +46,14 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   cartItems: CartItem[] = [];
   private ascFlag = 'desc';
 
-  constructor(private cartService: CartService, private orderByPipe: OrderByPipe,
-   @Inject(TokenFromFactory) private factoryGeneratorService: string, private trueGeneratorService: GeneratorService,
-   @Optional() private configOptionsService: ConfigOptionsService, @Optional() private constansService: ConstantsService) { }
+  constructor(
+    private cartService: CartService,
+    private orderByPipe: OrderByPipe,
+    private trueGeneratorService: GeneratorService,
+    @Inject(TokenFromFactory) private factoryGeneratorService: string,
+    @Optional() private configOptionsService: ConfigOptionsService,
+    @Optional() private constansService: ConstantsService
+  ) { }
 
   ngOnInit() {
      this.cartItems = this.cartService.getCart();
