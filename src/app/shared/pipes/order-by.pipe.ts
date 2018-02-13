@@ -10,7 +10,7 @@ export class OrderByPipe implements PipeTransform {
     return a;
   }
 
-   compareValues(sortField, ascFlag) {
+   private compareValues(sortField, ascFlag) {
     return function(a, b) {
       const varA = (sortField === 'name') ?
         a.product.name : a[sortField];
