@@ -17,4 +17,4 @@ import { OrderByPipe } from './pipes/order-by.pipe';
   exports: [TxtSizeDirective, OrderByPipe],
   providers: [LocalStorageService, GeneratorService, ConstantsService, ConfigOptionsService]
 })
-export class SharedModule { }
+export class CoreModule { }

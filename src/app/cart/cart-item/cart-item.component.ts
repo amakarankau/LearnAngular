@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBindi
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 import { CartItem } from '../models/cart-item.model';
-import { LocalStorageService } from '../../shared';
+import { LocalStorageService } from '../../core';
 import { Product } from '../../products/product/entity/product-model';
 
 @Component({

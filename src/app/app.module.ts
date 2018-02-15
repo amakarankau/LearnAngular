@@ -11,7 +11,7 @@ import { CartModule, CartListComponent } from './cart';
 
 import { NoContentComponent, NavBarModule } from './components';
 import { HomeComponent } from './home';
-import { SharedModule } from './shared';
+import { CoreModule } from './core';
 
 export const routeList: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +26,7 @@ export const routeList: Routes = [
     HomeComponent
   ],
   imports: [
-    SharedModule,
+    CoreModule,
     NavBarModule,
     BrowserModule,
     CartModule,
