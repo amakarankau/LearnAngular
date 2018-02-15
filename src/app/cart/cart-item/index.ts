@@ -1,3 +1,3 @@
-export * from './cart-item';
-export * from './cart-item.model';
+export * from '../models/cart-item';
+export * from '../models/cart-item.model';
 export * from './cart-item.component';

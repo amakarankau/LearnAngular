@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { CartComponent } from './cart.component';
-import { CartService } from './cart.service';
+import { CartService } from './services/cart.service';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartListComponent } from './cart-list/cart-list.component';
 import { SharedModule } from '../shared';

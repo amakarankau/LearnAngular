@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBinding, ElementRef, Renderer, ViewChild } from '@angular/core';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
-import { CartItem } from './cart-item.model';
+import { CartItem } from '../models/cart-item.model';
 import { LocalStorageService } from '../../shared';
 import { Product } from '../../products/product/entity/product-model';
 

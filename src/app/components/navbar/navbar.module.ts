@@ -4,8 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { NavBarComponent } from './navbar.component';
-import { CartComponent } from '../cart/index';
-import { CartModule } from '../cart/index';
+import { CartModule, CartComponent } from '../../cart';
 
 @NgModule({
   declarations: [NavBarComponent],

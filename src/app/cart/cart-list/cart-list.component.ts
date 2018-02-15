@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef, Optional, Provider, Inject, P
 import { forEach } from '@angular/router/src/utils/collection';
 import { OnChanges, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
-import { CartItem } from '../cart-item/cart-item.model';
+import { CartItem } from '../models/cart-item.model';
 import { GeneratorService, ConfigOptionsService, ConstantsService, GeneratorServiceFactory, TokenFromFactory } from '../../shared';
 import { SharedModule } from '../../shared';
 import { OrderByPipe } from '../../shared';
@@ -43,8 +43,10 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   clicked = true;
   txtSize = '25px';
 
+  private sortType: 'name' | 'quantity' | 'price' = 'name';
+  private sortDirection: 'asc' | 'desc'  = 'desc';
+
   cartItems: CartItem[] = [];
-  private ascFlag = 'desc';
 
   constructor(
     private cartService: CartService,
@@ -121,26 +123,30 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
+
   sortByName() {
-    this.orderByPipe.transform(this.cartItems, 'name', this.ascFlag);
+    this.sortType = 'name';
+    // this.orderByPipe.transform(this.cartItems, 'name', this.ascFlag);
     this.toggleAscFlag();
   }
 
   sortByQuantity() {
-    this.orderByPipe.transform(this.cartItems, 'quantity', this.ascFlag);
+    this.sortType = 'quantity';
+    // this.orderByPipe.transform(this.cartItems, 'quantity', this.ascFlag);
     this.toggleAscFlag();
   }
 
   sortByPrice() {
-    this.orderByPipe.transform(this.cartItems, 'price', this.ascFlag);
+    this.sortType = 'price';
+    // this.orderByPipe.transform(this.cartItems, 'price', this.ascFlag);
     this.toggleAscFlag();
   }
 
   private toggleAscFlag() {
-    if (this.ascFlag === 'asc') {
-      this.ascFlag = 'desc';
+    if (this.sortDirection === 'asc') {
+      this.sortDirection = 'desc';
     } else {
-      this.ascFlag = 'asc';
+      this.sortDirection = 'asc';
     }
   }
 }

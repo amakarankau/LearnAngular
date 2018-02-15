@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NoContentComponent } from './no-content/index';
+import { NoContentComponent } from './components';
 import { CartListComponent } from './cart/cart-list/cart-list.component';
 
 

@@ -9,9 +9,8 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products';
 import { CartModule, CartListComponent } from './cart';
 
-import { NoContentComponent } from './no-content/no-content.component';
+import { NoContentComponent, NavBarModule } from './components';
 import { HomeComponent } from './home';
-import { NavBarModule } from './navbar';
 import { SharedModule } from './shared';
 
 export const routeList: Routes = [
