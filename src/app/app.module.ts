@@ -1,39 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { NgModule, NgModuleFactoryLoader } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
-// import { routeList } from './app.routes';
+import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 
+import { TasksModule } from './tasks/tasks.module';
 import { AppComponent } from './app.component';
-
-import { ProductsModule } from './products';
-import { CartModule, CartListComponent } from './cart';
-
-import { NoContentComponent, NavBarModule } from './components';
-import { HomeComponent } from './home';
-import { CoreModule } from './core';
-
-export const routeList: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'cartList', component: CartListComponent},
-  {path: '**', component: NoContentComponent},
-];
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoContentComponent,
-    HomeComponent
+    appRouterComponents
   ],
   imports: [
-    CoreModule,
-    NavBarModule,
+    TasksModule,
     BrowserModule,
-    CartModule,
-    ProductsModule,
-    RouterModule.forRoot(routeList, {useHash: true, preloadingStrategy: PreloadAllModules}),
+    CommonModule,
+    FormsModule,
+    CoreModule,
+    SharedModule, // Last !!!
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    }
+
+}
