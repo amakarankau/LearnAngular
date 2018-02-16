@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 
-import { TasksModule } from './tasks/tasks.module';
+import { ProductsModule } from './products/products.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -17,7 +17,7 @@ import { SharedModule } from './shared/shared.module';
     appRouterComponents
   ],
   imports: [
-    TasksModule,
+    ProductsModule,
     BrowserModule,
     CommonModule,
     FormsModule,

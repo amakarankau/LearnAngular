@@ -1,4 +1,4 @@
-export class Task {
+export class Product {
     constructor(
         public id: number,
         public action: string,

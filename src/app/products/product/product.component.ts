@@ -1,16 +1,16 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
-import { Task } from './../models/task.model';
+import { Product } from './../models/product.model';
 @Component({
   selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css'],
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TaskComponent {
-  @Input() task: Task;
+export class ProductComponent {
+  @Input() task: Product;
 
-  @Output() complete = new EventEmitter<Task>();
-  @Output() edit = new EventEmitter<Task>();
+  @Output() complete = new EventEmitter<Product>();
+  @Output() edit = new EventEmitter<Product>();
 
   completeTask(): void {
     this.complete.emit(this.task);

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TaskListComponent, TaskFormComponent } from '.';
+import { ProductListComponent, ProductFormComponent } from '.';
 const routes: Routes = [
     {
         path: 'home',
-        component: TaskListComponent,
+        component: ProductListComponent,
         data: {
             title: 'Task Manager',
             meta: [{
@@ -16,11 +16,10 @@ const routes: Routes = [
               content: 'Angular 4 tutorial, SPA Application, Routing'
             }]
                 }
-            
     },
     {
         path: 'edit/:id',
-        component: TaskFormComponent
+        component: ProductFormComponent
         }
 ];
 @NgModule({
@@ -29,4 +28,4 @@ const routes: Routes = [
     ],
     exports: [RouterModule]
 })
-export class TasksRoutingModule { }
+export class ProductsRoutingModule { }
