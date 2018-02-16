@@ -1,13 +1,12 @@
 export class Product {
     constructor(
         public id: number,
-        public action: string,
-        public priority: number,
-        public estHours: number,
-        public actHours?: number,
-        public done?: boolean
-    ) {
-        this.actHours = actHours || 0;
-        this.done = done || false;
-    }
+        public name: string,
+        public description: string,
+        public price: number,
+        // public category: Category,
+        public isBookmarked: boolean,
+
+        public inStock: number
+       ) { }
 }

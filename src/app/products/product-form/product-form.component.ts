@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './../models/product.model';
-import { ProductArrayService } from './../services/product-array.service';
+import { ProductService } from './../services/product.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Location } from '@angular/common';
@@ -11,31 +11,31 @@ import { Location } from '@angular/common';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-  task: Product;
+  product: Product;
   constructor(
-    private taskArrayService: ProductArrayService,
+    private productService: ProductService,
     private route: ActivatedRoute,
     private location: Location
   ) { }
   ngOnInit(): void {
-    this.task = new Product(null, '', null, null);
+    this.product = new Product(null, '',  '', null,  null, null);
 
     // it is not necessary to save subscription to route.paramMap
     // it handles automatically
     this.route.paramMap
       .pipe(
-        switchMap((params: Params) => this.taskArrayService.getTask(+params.get('id'))))
+        switchMap((params: Params) => this.productService.getProduct(+params.get('id'))))
       .subscribe(
-        task => this.task = {...task},
+        product => this.product = {...product},
         err => console.log(err)
     );
   }
-  saveTask() {
-    const task = { ...this.task };
-    if (task.id) {
-      this.taskArrayService.updateTask(task);
+  saveProduct() {
+    const product = { ...this.product };
+    if (product.id) {
+      this.productService.updateProduct(product);
     } else {
-      this.taskArrayService.addTask(task);
+      this.productService.addProduct(product);
     }
     this.goBack();
   }

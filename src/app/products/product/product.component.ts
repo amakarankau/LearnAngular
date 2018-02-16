@@ -1,21 +1,49 @@
-import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
-import { Product } from './../models/product.model';
+import { Input, Output, Component, OnInit, EventEmitter } from '@angular/core';
+
+import { Product } from '../models/product.model';
+import { ProductService } from '../services/product.service';
+// import { CartService } from '../../cart/index';
+
+
 @Component({
-  selector: 'app-task',
+  selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./product.component.css']
 })
-export class ProductComponent {
-  @Input() task: Product;
+export class ProductComponent implements OnInit {
 
-  @Output() complete = new EventEmitter<Product>();
-  @Output() edit = new EventEmitter<Product>();
+  @Input() inStockColor: string;
+  @Input() productQuantity: number;
+  @Input() prod: Product;
+  @Input() bookmarkStyle: string;
 
-  completeTask(): void {
-    this.complete.emit(this.task);
+  @Output() event: EventEmitter<{}> = new EventEmitter();
+
+  // constructor (private cartService: CartService) {}
+  constructor () {}
+
+  ngOnInit (): void {
+    this.bookmarkStyle = this.prod.isBookmarked ? 'bookmark_active' : 'bookmark';
+    this.prod.inStock > 0 ? this.inStockColor = 'green' : this.inStockColor = 'red';
   }
-  editTask() {
-    this.edit.emit(this.task);
+
+  // addToCart(): void {
+  //   if (!this.isOutOfStock()) {
+  //    this.cartService.addToCart(this.prod, this.productQuantity);
+  //   }
+  // }
+
+  isOutOfStock(): boolean {
+    return this.prod.inStock <= 0;
+  }
+
+  toggleBookmarkStyle(): void {
+    this.prod.isBookmarked = !this.prod.isBookmarked;
+    if (this.bookmarkStyle === 'bookmark') {
+      this.bookmarkStyle = 'bookmark_active';
+    } else {
+      this.bookmarkStyle = 'bookmark';
+    }
+    console.log(this.prod.isBookmarked);
   }
 }
