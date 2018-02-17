@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './../core/guards/auth.guard';
-import { AdminComponent, AdminDashboardComponent, ManageTasksComponent, ManageUsersComponent } from '.';
+import { AdminComponent, AdminDashboardComponent, ManageTasksComponent, ManageCartComponent } from '.';
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
       {
         path: '',
         children: [
-          { path: 'users', component: ManageUsersComponent },
+          { path: 'users', component: ManageCartComponent },
           { path: 'tasks', component: ManageTasksComponent },
           { path: '', component: AdminDashboardComponent }
         ]
@@ -21,7 +21,7 @@ const routes: Routes = [
   }
 ];
 
-export let adminRouterComponents = [AdminComponent, AdminDashboardComponent, ManageTasksComponent, ManageUsersComponent];
+export let adminRouterComponents = [AdminComponent, AdminDashboardComponent, ManageTasksComponent, ManageCartComponent];
 
 @NgModule({
   imports: [

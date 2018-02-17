@@ -1,0 +1,6 @@
+<app-cart-item 
+  *ngFor="let cartItem of cart$ | async" 
+  [cartItem]="cartItem"
+  (edit)="editCartItem($event)"
+  [class.edited]="isEdited(cartItem)">
+</app-cart-item>

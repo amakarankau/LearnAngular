@@ -10,10 +10,10 @@ const routes: Routes = [
         loadChildren: 'app/admin/admin.module#AdminModule'
       },
       {
-        path: 'users',
-        loadChildren: 'app/users/users.module#UsersModule',
-        data: { preload: true,
-            title: 'Users' }
+        path: 'cart',
+        loadChildren: 'app/cart/cart.module#CartModule',
+        // data: { preload: true,
+        //     title: 'Users' }
       },
     
     {
