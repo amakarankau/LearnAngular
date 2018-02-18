@@ -7,37 +7,93 @@ import { map, catchError } from 'rxjs/operators';
 
 import { CartItem } from './../models/cart-item.model';
 
-const cartList: Array<CartItem> = [
-  new CartItem(1, 'Anna', 'Borisova'),
-  new CartItem(2, 'Boris', 'Vlasov'),
-  new CartItem(3, 'Gennadiy', 'Dmitriev')
-];
+import { Product } from '../../products/models/product.model';
 
-const cartListObservable: Observable<Array<CartItem>> = of(cartList);
+
 
 @Injectable()
 export class CartService {
-  getCart(): Observable<CartItem[]> {
-    return cartListObservable;
+
+  cartList: CartItem[] = [];
+
+  // cartListObservable: Observable<Array<CartItem>> = of(this.cartList);
+
+  // getCart(): Observable<CartItem[]> {
+  //   debugger;
+  //   return this.cartListObservable;
+  // }
+
+
+    getCart (): CartItem[] {
+      return this.cartList;
   }
+
 
   getCartItem(id: number | string): Observable<CartItem> {
-    return this.getCart()
-      .pipe(
-        map((cart: Array<CartItem>) => cart.find(cartItem => cartItem.id === +id)),
-        catchError(err => Observable.throw('Error in getCart method'))
-      );
+    return null;
+    // return this.getCart()
+    //   .pipe(
+    //     map((cart: Array<CartItem>) => cart.find(cartItem => cartItem.id === +id)),
+    //     catchError(err => Observable.throw('Error in getCart method'))
+    //   );
   }
 
-  addCart(cartItem: CartItem): void {
-    cartList.push(cartItem);
+  addCartItem(cartItem: CartItem): void {
+    this.cartList.push(cartItem);
   }
 
-  updateCart(cartItem: CartItem): void {
-    const i = cartList.findIndex(u => u.id === cartItem.id);
+  updateCartItem(cartItem: CartItem): void {
+    // const i = this.cartList.findIndex(u => u.id === cartItem.id);
 
-    if (i > -1) {
-      cartList.splice(i, 1, cartItem);
+    // if (i > -1) {
+    //   this.cartList.splice(i, 1, cartItem);
+    // }
+  }
+
+
+
+  addToCart(product: Product, quantity?: number) {
+    debugger;
+    const cart = this.cartList;
+    let item = cart.find((p) => p.product.id === product.id);
+    if (item === undefined) {
+      item = new CartItem(product, quantity || 1);
+      cart.push(item);
+    } else {
+      item.quantity += quantity || 1;
+    }
+    this.getTotalPrice();
+  }
+
+  getItemsNumber() {
+    return this.cartList.length;
+  }
+
+  removeFromCart(id: number): void {
+    const item: CartItem = this.cartList.find((obj) => obj.product.id === id);
+    if (item) {
+      const index: number = this.cartList.indexOf(item);
+      this.cartList.splice(index, 1);
     }
   }
+
+  updateCartContent(newCart: CartItem[]) {
+    this.cartList = newCart;
+  }
+
+  getTotalPrice(): number {
+    let total = 0;
+    this.cartList.forEach((item) => total += item.price * item.quantity);
+    return Math.round(total * 100) / 100;
+  }
+
+  clearCart() {
+    this.cartList = [];
+    this.getTotalPrice();
+  }
+
+  isEmptyCart(): boolean {
+    return this.cartList.length === 0;
+  }
 }
+

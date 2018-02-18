@@ -22,13 +22,13 @@ export class ProductFormComponent implements OnInit {
 
     // it is not necessary to save subscription to route.paramMap
     // it handles automatically
-    this.route.paramMap
-      .pipe(
-        switchMap((params: Params) => this.productService.getProduct(+params.get('id'))))
-      .subscribe(
-        product => this.product = {...product},
-        err => console.log(err)
-    );
+    // this.route.paramMap
+    //   .pipe(
+    //     switchMap((params: Params) => this.productService.getProduct(+params.get('id'))))
+    //   .subscribe(
+    //     product => this.product = {...product},
+    //     err => console.log(err)
+    // );
   }
   saveProduct() {
     const product = { ...this.product };

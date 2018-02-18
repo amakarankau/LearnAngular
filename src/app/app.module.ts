@@ -1,3 +1,4 @@
+import { CartService } from './cart/services/cart.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NgModuleFactoryLoader } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -26,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule
   ],
   providers: [
+    CartService
   ],
   bootstrap: [AppComponent]
 })

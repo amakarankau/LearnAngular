@@ -46,7 +46,7 @@ export class CartFormComponent implements OnInit, OnDestroy { // , CanComponentD
 
 
   ngOnInit(): void {
-    this.cart = new CartItem(null, '', '');
+    this.cart = new CartItem(null, 1);
 
     // we should recreate component because this code runs only once
     this.route.data.subscribe(data => {
@@ -60,16 +60,16 @@ export class CartFormComponent implements OnInit, OnDestroy { // , CanComponentD
     this.sub.unsubscribe();
   }
   saveCart() {
-    const cart = {...this.cart};
+    // const cart = {...this.cart};
 
-    if (cart.id) {
-      this.cartService.updateCart(cart);
-      this.router.navigate(['/cart', {editedCartItemId: cart.id}]);
-    } else {
-      this.cartService.addCart(cart);
-      this.goBack();
-    }
-    this.originalCart = {...this.cart};
+    // if (cart.id) {
+    //   this.cartService.updateCart(cart);
+    //   this.router.navigate(['/cart', {editedCartItemId: cart.id}]);
+    // } else {
+    //   this.cartService.addCart(cart);
+    //   this.goBack();
+    // }
+    // this.originalCart = {...this.cart};
   }
 
   goBack() {

@@ -74,9 +74,9 @@ const productsList: Array<Product> = [
       1.11, false, 500),
 ];
 
-const productsListPromise = Promise.resolve(productsList);
+// const productsListPromise = Promise.resolve(productsList);
 
-const productsListObservable: Observable<Array<Product>> = of(productsList);
+// const productsListObservable: Observable<Array<Product>> = of(productsList);
 
 
 @Injectable()
@@ -90,19 +90,15 @@ export class ProductService implements OnDestroy {
     }
   }
 
-  getProduct(id: number | string): Promise<Product> {
-    return this.getProducts()
-      .then(tasks => tasks.find(task => task.id === +id))
-      .catch(() => Promise.reject('Error in getTask method'));
-  }
-
-  // getProductById(id: number): Product {
-  //   let product: Product;
-  //   const subscription = this.getProducts()(result => {
-  //     product = result.find((i) => i.id === id);
-  //   });
-  //   return product;
+  // getProduct(id: number | string): Promise<Product> {
+  //   return this.getProducts()
+  //     .then(tasks => tasks.find(task => task.id === +id))
+  //     .catch(() => Promise.reject('Error in getTask method'));
   // }
+
+  getProductById(id: number): Product {
+    return this.getProducts().find((i) => i.id === id);
+  }
 
   // getProducts(): Observable<Product[]> {
   //   return productsListObservable;
@@ -111,6 +107,7 @@ export class ProductService implements OnDestroy {
   addProduct(task: Product): void {
     productsList.push(task);
   }
+
   updateProduct(task: Product): void {
     let i = -1;
     productsList.forEach((item, index) => {
@@ -124,14 +121,9 @@ export class ProductService implements OnDestroy {
     }
   }
 
-  getProducts1(): Array<Product> {
+  getProducts(): Array<Product> {
     return productsList;
   }
-
-  getProducts(): Promise<Product[]> {
-    return productsListPromise;
-  }
-
 }
 
 

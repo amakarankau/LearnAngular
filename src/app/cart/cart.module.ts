@@ -15,7 +15,7 @@ import { CartRoutingModule, cartRouterComponents } from './cart.routing.module';
     CartItemComponent
   ],
   providers: [
-  CartService,
+  // CartService,
   CartResolveGuard]
 })
 export class CartModule {}

@@ -7,12 +7,24 @@ import { AuthService } from './services';
 import { LoginComponent } from './components/login/login.component';
 
 
+import { ConfigOptionsService } from './services/config-options.service';
+import { ConstantsService } from './services/constants.service';
+import { GeneratorService } from './services/generator.service';
+import { LocalStorageService } from './services/local-storage.service';
+
+import { TxtSizeDirective } from './directives/txt-size.directive';
+import { OrderByPipe } from './pipes/order-by.pipe';
+
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [MessagesComponent, LoginComponent],
-  providers: [MessagesService, AuthGuard, AuthService, CustomPreloadingStrategyService]
+  declarations: [MessagesComponent, LoginComponent, TxtSizeDirective, OrderByPipe],
+  exports: [TxtSizeDirective, OrderByPipe],
+  providers: [MessagesService, AuthGuard, AuthService, CustomPreloadingStrategyService,
+    LocalStorageService, GeneratorService, ConstantsService, ConfigOptionsService]
+
+
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

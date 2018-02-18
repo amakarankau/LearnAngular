@@ -30,7 +30,7 @@ export class CartResolveGuard implements Resolve<CartItem> {
         })
       );
     } else {
-      return of(new CartItem(null, '', ''));
+      return of(new CartItem(null, 1));
     }
   }
 }
