@@ -53,7 +53,6 @@ export class CartService {
 
 
   addToCart(product: Product, quantity?: number) {
-    debugger;
     const cart = this.cartList;
     let item = cart.find((p) => p.product.id === product.id);
     if (item === undefined) {

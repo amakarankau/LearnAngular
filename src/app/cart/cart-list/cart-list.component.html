@@ -17,12 +17,12 @@
 
 <div class = "cart-container">
     <app-cart-item #appCart *ngFor="let item of cartItems" [currentItem] = "item" (increase)="onIncrease(item)"
-    (decrease)="onDecrease(item)" (remove)="removeFromCart(item)"> </app-cart-item>
+    (decrease)="onDecrease(item)" (remove)="removeFromCart(item)" (getInfo)="getInfo($event)"> </app-cart-item>
 </div>
 
 <!-- <p [appTxtSize]='txtSize' (click)="clickText()" #testChild class="total" >Total: {{ getTotalPrice() | currency:'USD' }}</p> -->
 
-<p (click)="clickText()" #testChild class="total" >Total: {{ getTotalPrice() | currency:'USD' }}</p>
+<p (click)="clickText()" #testChild class="total" >Total: {{ getTotalPrice() | currency:'BYN ' }}</p>
 
 <div class="row">
     <div class="col-2">

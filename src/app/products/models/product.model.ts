@@ -5,7 +5,8 @@ export class Product {
         public description: string,
         public price: number,
         public countryOfOrigin: string,
-        // public category: Category,
+        public conditionsInfo: string,
+        public producer: string,
         public isBookmarked: boolean,
 
         public inStock: number

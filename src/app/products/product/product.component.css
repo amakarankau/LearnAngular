@@ -34,7 +34,17 @@
   font-size: 2rem;
 }
 
-.product_image {
-  max-height: 200px;
-  padding: 10px;
+.product-image {
+  max-height: 150px;
+  padding: 5px;
+}
+
+.product-price {
+  float: right;
+  margin-top: 1rem;
+  margin-right: 2rem;
+}
+
+.product-description {
+  margin-top: 1rem;
 }

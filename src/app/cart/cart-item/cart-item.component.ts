@@ -20,6 +20,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBinding, ElementRef, Renderer, ViewChild } from '@angular/core';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
+import { Router, NavigationExtras  } from '@angular/router';
+
 import { CartItem } from '../models/cart-item.model';
 import { LocalStorageService } from '../../core/services';
 import { Product } from '../../products/models/product.model';
@@ -37,6 +39,7 @@ export class CartItemComponent implements OnInit, AfterViewInit {
   @Output() public increase: EventEmitter<{}> = new EventEmitter();
   @Output() public decrease: EventEmitter<{}> = new EventEmitter();
   @Output() public remove: EventEmitter<{}> = new EventEmitter();
+  @Output() public getInfo: EventEmitter<{}> = new EventEmitter();
 
   @ViewChild('productName') private variableInput: ElementRef;
   @ViewChild('itemQuantity') private quantityInput: ElementRef;
@@ -53,7 +56,7 @@ export class CartItemComponent implements OnInit, AfterViewInit {
     this.selectedClass = 'unSelected';
   }
 
-  constructor(private el: ElementRef,  private renderer: Renderer, private storageService: LocalStorageService) { }
+  constructor(private el: ElementRef,  private renderer: Renderer, private storageService: LocalStorageService, public router: Router) { }
 
   ngAfterViewInit() {
     this.childMethod();
@@ -118,5 +121,9 @@ export class CartItemComponent implements OnInit, AfterViewInit {
     console.log(localStorage);
    }
 
+   getItemInfo() {
+      this.getInfo.emit(this.currentItem);
+    }
+   }
 
-}
+

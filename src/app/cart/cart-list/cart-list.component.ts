@@ -75,25 +75,14 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
     @Optional() private constansService: ConstantsService
   ) { }
 
-  editCartItem(cartItem: CartItem) {
-    // const link = ['/users/edit', user.id];
-    // this.router.navigate(link);
-    // or
-    // const link = ['edit', cartItem.id];
-    // this.router.navigate(link, {relativeTo: this.route});
+  getInfo(cartItem: CartItem) {
+  const link = ['info', cartItem.product.id];
+  this.router.navigate(link , {relativeTo: this.route});
   }
-
-  isEdited(cartItem: CartItem) {
-    // if (this.editedCartItem) {
-    //   return cartItem.id === this.editedCartItem.id;
-    // }
-    // return false;
-}
 
 
   ngOnInit() {
 
-    debugger;
     this.cartItems = this.cartService.getCart();
     // this.cart$ = this.cartService.getCart();
 
@@ -202,6 +191,8 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
       this.sortDirection = 'asc';
     }
   }
+
+
 
 }
 

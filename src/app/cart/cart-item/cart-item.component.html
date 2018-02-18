@@ -1,47 +1,40 @@
-<!-- <div class="panel panel-default">
-    <div class="panel-heading">Cart Item</div>
-    <div class="panel-body">
-      <ul>
-        <li>FirtsName: {{cartItem.firstName}}</li>
-        <li>LastName: {{cartItem.lastName}}</li>
-      </ul>
-      <button class="btn btn-warning btn-sm"
-        (click)="editCartItem()">
-        Edit
-      </button>
-    </div>
-  </div> -->
-  
-  <div class="item-container card card-block">
-    <!-- <div [className]="selectedClass"> -->
-    <div [ngClass]="{
+<div class="item-container card card-block">
+  <!-- <div [className]="selectedClass"> -->
+  <div [ngClass]="{
         'selected':selectedClass === 'selected',
         'unSelected':selectedClass === 'unSelected'
       }">
-      <div class="row">
-        <div class="col-3 productName" #productName> {{ currentItem.product.name }}
-        <span [ngClass]="bookmarkStyle" (click)="toggleBookmarkStyle()"><i class="far fa-bookmark fa-xs"></i></span>
-        </div>
-        <div class="col-2">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <button class="btn btn-outline-primary" (click)="minusOne()">-</button>
-            </div>
-            <input #itemQuantity type="text" class="form-control" [(ngModel)]="currentItem.quantity" (keyup)="validateInput(itemQuantity.value);">
-            <div class="input-group-append">
-              <button class="btn btn-outline-primary" (click)="plusOne()">+</button>
-            </div>
+    <div class="row">
+        <div class="col-3">
+            <img src="../../assets/{{currentItem.product.id}}.jpg" class="product-image" />
+          </div>
+
+      <div class="col-3 productName" #productName> {{ currentItem.product.name }}
+        <span [ngClass]="bookmarkStyle" (click)="toggleBookmarkStyle()">
+          <i class="far fa-bookmark fa-xs"></i>
+        </span>
+      </div>
+      <div class="col-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-primary" (click)="minusOne()">-</button>
+          </div>
+          <input #itemQuantity type="text" class="form-control" [(ngModel)]="currentItem.quantity" (keyup)="validateInput(itemQuantity.value);">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary" (click)="plusOne()">+</button>
           </div>
         </div>
-        <div class="col-2">
-          <button class="btn btn-outline-danger" (click)="removeFromCart()">Remove</button>
-        </div>
       </div>
+      <div class="col-2">
+        <button class="btn btn-outline-danger" (click)="removeFromCart()">Remove</button>
+      </div>
+      <div class="col-2">
+          <button class="btn btn-outline-primary" (click)="getItemInfo()">Info</button>
+        </div>
     </div>
   </div>
-  Test section (see console)
+</div>
+<!-- Test section (see console)
   <button class="btn btn btn-outline-secondary btn-sm" (click)="setToStore()">toLocalStore</button>
   <button type="button" class="btn btn btn-outline-secondary btn-sm" (click)="getFromStore()">fromLocalStore</button>
-  <button class="btn btn-outline-secondary btn-sm" (click)="removeFromStore()">removeFromStore</button>
-  
-  
+  <button class="btn btn-outline-secondary btn-sm" (click)="removeFromStore()">removeFromStore</button> -->

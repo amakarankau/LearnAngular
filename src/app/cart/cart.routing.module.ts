@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CartComponent, CartListComponent, CartFormComponent, CartResolveGuard  } from '.';
+import { CartComponent, CartListComponent, CartFormComponent, CartInfoComponent, CartResolveGuard  } from '.';
 import { CanDeactivateGuard } from './../shared';
 
 const routes: Routes = [
@@ -9,18 +9,22 @@ const routes: Routes = [
     path: '',
     component: CartComponent,
     children: [
-      {
-        path: 'add',
-        component: CartFormComponent
-      },
-      {
-        path: 'edit/:cartItemId',
-        component: CartFormComponent,
-        // canDeactivate: [CanDeactivateGuard],
-        // resolve: {
-        //   user: UserResolveGuard
-        // }
+      // {
+      //   path: 'add',
+      //   component: CartFormComponent
+      // },
+      // {
+      //   path: 'edit/:cartItemId',
+      //   component: CartFormComponent,
+      //   // canDeactivate: [CanDeactivateGuard],
+      //   // resolve: {
+      //   //   user: UserResolveGuard
+      //   // }
 
+      // },
+      {
+        path: 'info/:cartItemId',
+        component: CartInfoComponent
       },
       {
         path: '',
@@ -30,7 +34,7 @@ const routes: Routes = [
   }
 ];
 
-export const cartRouterComponents = [CartComponent, CartListComponent, CartFormComponent];
+export const cartRouterComponents = [CartComponent, CartListComponent, CartFormComponent, CartInfoComponent];
 
 @NgModule({
   imports: [
