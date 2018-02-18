@@ -52,26 +52,21 @@ import { Subscription } from 'rxjs/Subscription';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
 const productsList: Array<Product> = [
-  new Product(1, 'Product1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt \
-      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla \
-      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-      4.44, false, 1000),
-      new Product(2, 'Product2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt \
-      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla \
-      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-      3.33, true, 1000),
-      new Product(3, 'Product3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt \
-      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla \
-      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-      2.22, true , 0),
-      new Product(4, 'Product4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt \
-      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip \
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla \
-      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-      1.11, false, 500),
+  new Product(1, 'Томат, 1кг', 'Класс 1. Сорт F-190.', 2.99, 'Турция', false, 1000),
+  new Product(2, 'Перец красный, 1 кг.', 'Сорт Калифорния ред.', 7.85, 'Голландия', false, 1000),
+  new Product(3, 'Капуста белокочанная 1 кг.', 'Урожай 2017 г.', 0.45, 'Беларусь', false, 1000),
+  new Product(4, 'Морковь свежая 1 кг.', 'Не мытая', 0.59, 'Беларусь', false, 1000),
+  new Product(5, 'Чеснок 1 кг.', 'содержание клетчатки в 100 г продукта 2.1 г.', 4.99, 'Китай', false, 1000),
+  new Product(6, 'Томат «Слива» 1 кг.', 'Класс 1', 3.59, 'Украина', false, 1000),
+  new Product(8, 'Капуста ранняя 1 кг.', 'Сорт Парел.', 1.09, 'Македония', false, 1000),
+  new Product(7, 'Томат черри сливка 250 г.', 'Сорт Daniela, категория 1.', 2.99, 'Египет', false, 1000),
+  new Product(9, 'Капуста пекинская, 1 кг.', 'Сорт Билко.', 1.65, 'Польша', false, 1000),
+  new Product(10, 'Лук репчатый, 1кг.', 'Сорт 1. Урожай: 2017 года.', 0.49, 'Беларусь', false, 1000),
+  new Product(11, 'Свекла 1 кг.', 'Урожай 2017 года.', 0.68, 'Беларусь', false, 1000),
+  new Product(12, 'Сельдерей стеблевой, 1 кг.', '1 категория.', 3.25, 'Польша', false, 1000),
+  new Product(13, 'Имбирь 1 кг.', 'Класс 1.', 6.99, 'Китай', false, 1000),
+  new Product(14, 'Картофель свежий, 1 кг.', 'Урожай 2017 г.', 0.79, 'Беларусь', false, 1000),
+  new Product(15, 'Перец чили 1 кг.', '1 категория.', 10.99, 'Польша', false, 1000),
 ];
 
 // const productsListPromise = Promise.resolve(productsList);

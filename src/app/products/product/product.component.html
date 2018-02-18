@@ -1,6 +1,42 @@
 <div class="product-container">
   <div class="row">
-    <div class="col-9">
+
+      <div class="medium-3 columns text-center">
+          <img src="../../assets/{{prod.id}}.jpg"
+               class="product_image"/>
+        </div>
+        <div class="medium-9 columns">
+          <h4>
+            <span class="text--bold js-product-name">{{prod.name}}</span>
+            <small class="product_price js-product-price">{{prod.price | currency:'GBP':true}}</small>
+          </h4>
+          <p class="js-product-desc">{{prod.description}}</p>
+          <p>
+            <span class="text--bold">ingredients:</span>
+            <br/>
+
+          </p>
+          <p>
+              <button type="button" [disabled]="isOutOfStock()" class="btn" (click)="addToCart()">
+                  <i class="fas fa-cart-plus"></i> Add to cart</button>
+
+
+
+                  
+            <!-- <button type="button"
+                    class="button success large js-btn-add"
+                    (click)="addProductToCart(product, 1)">Add To Cart</button>
+            <button type="button"
+                    class="button small js-btn-remove"
+                    *ngIf="productInCart(product) | async"
+                    (click)="removeProductFromCart(product, 1)">Remove item from cart</button> -->
+          </p>
+        </div>
+
+
+
+
+    <!-- <div class="col-9">
       <ul>
         <li class="productName">
           {{prod.name | uppercase}} <span [ngClass]="bookmarkStyle" (click)="toggleBookmarkStyle()"><i class="far fa-bookmark fa-xs"></i></span>
@@ -24,7 +60,7 @@
     </div>
     <div class="col-3" [ngStyle]="{'color':inStockColor}">
       In stock: {{prod.inStock}}
-    </div>
+    </div> -->
   </div>
 </div>
 

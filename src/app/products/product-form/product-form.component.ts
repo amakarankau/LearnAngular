@@ -18,7 +18,7 @@ export class ProductFormComponent implements OnInit {
     private location: Location
   ) { }
   ngOnInit(): void {
-    this.product = new Product(null, '',  '', null,  null, null);
+    this.product = new Product(null, '',  '', null, '', null, null);
 
     // it is not necessary to save subscription to route.paramMap
     // it handles automatically
