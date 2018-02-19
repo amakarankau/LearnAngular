@@ -1,43 +1,45 @@
-<form class="product-form">
+<form class="product-form" (ngSubmit)="saveProduct()" id="user-form" #form="ngForm">
   <div class="form-row">
     <div class="form-group col-md-1">
       <label for="id">Id</label>
-      <input type="email" class="form-control" id="id" placeholder="Id">
+      <input type="text" class="form-control" id="id" required placeholder="Id" [(ngModel)]="product.id">
     </div>
     <div class="form-group col-md-4">
       <label for="name">Наименование</label>
-      <input type="password" class="form-control" id="name" placeholder="Наименование">
+      <input type="text" class="form-control" id="name" required placeholder="Наименование" [(ngModel)]="product.name">
     </div>
     <div class="form-group col-md-1">
       <label for="price">Цена</label>
-      <input type="text" class="form-control" id="price" placeholder="Цена">
+      <input type="text" class="form-control" id="price" required placeholder="Цена" [(ngModel)]="product.price">
     </div>
     <div class="form-group col-md-2">
       <label for="inStore">В наличии</label>
-      <input type="text" class="form-control" id="inStore" placeholder="В наличии">
+      <input type="text" class="form-control" id="inStore" required placeholder="В наличии" [(ngModel)]="product.inStock">
     </div>
     <div class="form-group col-md-3">
       <label for="origin">Страна происхождения</label>
-      <input type="text" class="form-control" id="origin" placeholder="Страна происхождения">
+      <input type="text" class="form-control" id="origin" placeholder="Страна происхождения" [(ngModel)]="product.countryOfOrigin">
     </div>
   </div>
   <div class="form-group">
     <label for="description">Описание</label>
-    <textarea class="form-control" class="form-control" id="description" placeholder="Описание" rows="2"></textarea>
+    <textarea class="form-control" class="form-control" id="description" placeholder="Описание" rows="2" [(ngModel)]="product.description"></textarea>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="storage">Условия хранения</label>
-      <textarea class="form-control" class="form-control" id="storage" placeholder="Условия хранения" rows="2"></textarea>
+      <textarea class="form-control" class="form-control" id="storage" placeholder="Условия хранения" rows="2" [(ngModel)]="product.conditionsInfo"></textarea>
     </div>
     <div class="form-group col-md-6">
       <label for="producer">Производитель</label>
-      <textarea class="form-control" class="form-control" id="producer" placeholder="Производитель" rows="2"></textarea>
+      <textarea class="form-control" class="form-control" id="producer" placeholder="Производитель" rows="2" [(ngModel)]="product.producer"></textarea>
     </div>
   </div>
   <div class="form-group">
     <label for="image">Изображение</label>
     <input type="file" class="form-control-file" id="image">
   </div>
-  <button type="submit" class="btn btn-primary float-right">Сохранить</button>
+  <button type="submit" class="btn btn-primary float-right" [disabled]="form.invalid">Сохранить</button>
+  <button class="btn btn-primary" type="button" (click)="goBack()">Назад
+  </button>
 </form>

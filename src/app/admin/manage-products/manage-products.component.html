@@ -1,5 +1,5 @@
-<app-manage-product 
-  *ngFor="let product of products" 
+<app-manage-product
+  *ngFor="let product of products"
   [product]="product"
   (edit)="editProduct($event)"
   (delete)="deleteProduct($event)">

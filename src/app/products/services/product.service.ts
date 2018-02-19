@@ -20,7 +20,7 @@ const productsList: Array<Product> = [
   относительной влажности 90-95%. Срок годности 60 суток.', 'ООО "ГринОпт", 220025, г. Минск, ул. Слободская, д. 131, РБ.', false, 1000),
   new Product(4, 'Морковь свежая 1 кг.', 'Не мытая', 0.59, 'Беларусь', 'хранить при температуре от 0 °С до 1 °С и относительной влажности\
    воздуха 90- 95 %, 90 суток.', 'Заготовитель: ООО "ДаоЛогистик", 223018, Минская обл., Минский р-н, д. Тарасово, Тарасовский проезд, \
-   д.1, к.22. Поставщик: ООО "ГринОпт", г. Минск, ул. Слободская, 131/27.',  false, 1000),
+   д.1, к.22. Поставщик: ООО "ГринОпт", г. Минск, ул. Слободская, 131/27.', false, 1000),
   new Product(5, 'Чеснок 1 кг.', 'содержание клетчатки в 100 г продукта 2.1 г.', 4.99, 'Китай', 'хранить при температуре от -1 °С \
   до +2 °С и относительной влажности воздуха 90-95 %, 180 суток.', 'Jining Haijiang Trading CO.LTD, Guanya International Mansion, \
   1601-1609, Wutaizha Rd, Jining, Shandong, Китай.', false, 1000),
@@ -74,8 +74,8 @@ export class ProductService implements OnDestroy {
   getProductById(id: number | string): Promise<Product> {
 
     return this.getProducts1()
-    .then(products => products.find(product => product.id === +id))
-    .catch(() => Promise.reject('Error in getTask method'));
+      .then(products => products.find(product => product.id === +id))
+      .catch(() => Promise.reject('Error in getTask method'));
 
 
 
@@ -86,23 +86,32 @@ export class ProductService implements OnDestroy {
   //   return productsListObservable;
   // }
 
-  addProduct(task: Product): void {
-    productsList.push(task);
+  addProduct(product: Product): void {
+    productsList.push(product);
   }
 
-  updateProduct(task: Product): void {
+  updateProduct(product: Product): void {
     let i = -1;
     productsList.forEach((item, index) => {
-      if (item.id === task.id) {
+      if (item.id === product.id) {
         i = index;
         return false;
       }
     });
     if (i > -1) {
-      productsList.splice(i, 1, task);
+      productsList.splice(i, 1, product);
     }
   }
 
+  deleteProduct(id: number) {
+    const product: Product = this.getProducts().find((obj) => obj.id === id);
+    if (product) {
+      const index: number = this.getProducts().indexOf(product);
+      this.getProducts().splice(index, 1);
+    }
+  }
+
+  
   getProducts1(): Promise<Product[]> {
     return productsListPromise;
   }

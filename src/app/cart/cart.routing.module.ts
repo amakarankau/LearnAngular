@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CartComponent, CartListComponent, CartFormComponent, CartInfoComponent, CartResolveGuard  } from '.';
+import { CartComponent, CartListComponent,  CartInfoComponent, CartResolveGuard  } from '.';
 import { CanDeactivateGuard } from './../shared';
 
 const routes: Routes = [
@@ -34,7 +34,7 @@ const routes: Routes = [
   }
 ];
 
-export const cartRouterComponents = [CartComponent, CartListComponent, CartFormComponent, CartInfoComponent];
+export const cartRouterComponents = [CartComponent, CartListComponent, CartInfoComponent];
 
 @NgModule({
   imports: [

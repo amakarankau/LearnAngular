@@ -31,7 +31,7 @@ export class ManageProductsComponent implements OnInit {
   }
 
   deleteProduct(product: Product) {
-    console.log(product);
+    this.productService.deleteProduct(product.id);
   }
   private async getProducts() {
     this.products = await this.productService.getProducts();
