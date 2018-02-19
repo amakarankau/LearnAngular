@@ -1,16 +1,13 @@
 <h3>Admin</h3>
-<nav>
-  <ul class="nav nav-tabs">
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-      <a routerLink="./" queryParamsHandling="preserve" preserveFragment>Dashboard</a>
-    </li>
-    <li routerLinkActive="active">
-      <a routerLink="./tasks" queryParamsHandling="preserve" preserveFragment>Manage Tasks</a>
-    </li>
-    <li routerLinkActive="active">
-      <a routerLink="./users" queryParamsHandling="preserve" preserveFragment>Manage Users</a>
-    </li>
-  </ul>
-</nav>
-
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" routerLink="./">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="./orders">Manage Orders</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="./products">Manage Products</a>
+  </li>
+</ul>
 <router-outlet></router-outlet>
