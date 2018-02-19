@@ -19,7 +19,6 @@ export class CartService {
   // cartListObservable: Observable<Array<CartItem>> = of(this.cartList);
 
   // getCart(): Observable<CartItem[]> {
-  //   debugger;
   //   return this.cartListObservable;
   // }
 

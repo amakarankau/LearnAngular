@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './../core/guards/auth.guard';
 import { AdminComponent, AdminDashboardComponent, ManageProductsComponent, ManageOrdersComponent} from '.';
+import { ManageProductFormComponent } from './manage-products/manage-product-form/manage-product-form.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
         children: [
           { path: 'orders', component: ManageOrdersComponent },
           { path: 'products', component: ManageProductsComponent },
+          { path: 'products/edit/:productId', component: ManageProductFormComponent },
           { path: '', component: AdminDashboardComponent }
         ]
       }

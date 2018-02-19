@@ -1,0 +1,10 @@
+<div class="product-container card card-block">
+  <div class="row">
+    <div class="col-8 m-2">
+      Id: {{product.id}} {{product.name}}
+    </div>
+    <div class="button-block">
+      <button type="submit" class="btn btn-outline-primary mr-2" (click)="editProduct()">Редактировать</button>
+      <button type="submit" class="btn btn-outline-danger"(click)="deleteProduct()">Удалить</button>
+    </div>
+  </div>

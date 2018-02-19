@@ -1,3 +1,6 @@
-<p>
-  manage-products works!
-</p>
+<app-manage-product 
+  *ngFor="let product of products" 
+  [product]="product"
+  (edit)="editProduct($event)"
+  (delete)="deleteProduct($event)">
+</app-manage-product>
