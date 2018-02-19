@@ -1,8 +1,8 @@
-<form class="product-form" (ngSubmit)="saveProduct()" id="user-form" #form="ngForm">
+<div class="product-form" (ngSubmit)="saveProduct()" id="user-form">
   <div class="form-row">
     <div class="form-group col-md-1">
-      <label for="id">Id</label>
-      <input type="text" class="form-control" id="id" required placeholder="Id" [(ngModel)]="product.id">
+      <label for="prodId">Id</label>
+      <input type="text" class="form-control" id="prodId" required placeholder="Id" [(ngModel)]="product.id">
     </div>
     <div class="form-group col-md-4">
       <label for="name">Наименование</label>
@@ -39,7 +39,7 @@
     <label for="image">Изображение</label>
     <input type="file" class="form-control-file" id="image">
   </div>
-  <button type="submit" class="btn btn-primary float-right" [disabled]="form.invalid">Сохранить</button>
+  <button type="submit" class="btn btn-primary float-right" (click)="saveProduct()">Сохранить</button>
   <button class="btn btn-primary" type="button" (click)="goBack()">Назад
   </button>
-</form>
+</div>

@@ -25,11 +25,12 @@ export class ManageProductFormComponent implements OnInit {
   }
 
   saveProduct() {
+    debugger;
     const product = { ...this.product };
 
     if (product.id) {
       this.productService.updateProduct(product);
-      this.router.navigate(['/products', { editedProductID: product.id }]);
+      this.router.navigate(['/admin/products']);
     } else {
       this.productService.addProduct(product);
       this.goBack();

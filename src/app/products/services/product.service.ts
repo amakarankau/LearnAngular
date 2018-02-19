@@ -91,6 +91,7 @@ export class ProductService implements OnDestroy {
   }
 
   updateProduct(product: Product): void {
+    debugger;
     let i = -1;
     productsList.forEach((item, index) => {
       if (item.id === product.id) {
@@ -111,7 +112,7 @@ export class ProductService implements OnDestroy {
     }
   }
 
-  
+
   getProducts1(): Promise<Product[]> {
     return productsListPromise;
   }
