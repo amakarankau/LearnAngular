@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy  } from '@angular/core';
-import { MessagesService } from './core/services';
 import { Title, Meta  } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -18,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
 
-  constructor(public messagesService: MessagesService, private metaService: Meta, private titleService: Title, private router: Router) { }
+  constructor(private metaService: Meta, private titleService: Title, private router: Router) { }
 
   onActivate($event) {
     console.log('Activated Component', $event);
@@ -27,10 +26,6 @@ export class AppComponent implements OnInit, OnDestroy {
     console.log('Deactivated Component', $event);
   }
 
-  displayMessages(): void {
-    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
-    this.messagesService.isDisplayed = true;
-  }
   ngOnInit() {
     this.setPageTitlesAndMeta();
   }

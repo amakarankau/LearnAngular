@@ -75,7 +75,14 @@ Todo:
     localStorage.setItem("myKey", serialObj); //запишем его в хранилище по ключу "myKey"
     var returnObj = JSON.parse(localStorage.getItem("myKey")) //спарсим его обратно объект```
   Current:
-    ☐ сделать add @critical
+    ✔ сделать add @critical @done(18-02-20 21:37)
+    ☐ pipe - сортировка
+    ✔ $ в ценах @done(18-02-20 21:46)
+    ☐ админка - табы
+    ☐ видео - что с сессией - пересмотреть
+    ☐ гард на админку
+    ☐ гард на save для продукта
+    ☐ диалог на подтверждение ???
 
   
 

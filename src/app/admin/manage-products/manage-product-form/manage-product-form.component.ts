@@ -15,7 +15,6 @@ export class ManageProductFormComponent implements OnInit {
 
   ngOnInit() {
     this.product = new Product(null, '', '', null, '', '', '', null, null);
-    debugger;
     const id = +this.route.snapshot.paramMap.get('productId');
     this.productService.getProductById(id)
       .then(product => {

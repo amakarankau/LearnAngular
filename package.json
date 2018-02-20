@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"ng serve\" \"json-server --watch db\\db.json\"",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -26,11 +26,13 @@
     "@angular/platform-browser-dynamic": "^5.1.0",
     "@angular/router": "^5.1.0",
     "bootstrap": "^4.0.0",
+    "concurrently": "^3.5.1",
     "core-js": "^2.4.1",
-    "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19",
     "jquery": "1.9.1",
-    "popper.js": "^1.12.9"
+    "json-server": "^0.12.1",
+    "popper.js": "^1.12.9",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
   },
   "devDependencies": {
     "@angular/cli": "1.6.4",

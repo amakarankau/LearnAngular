@@ -1,10 +1,3 @@
-<!-- <app-cart-item 
-  *ngFor="let cartItem of cart$ | async" 
-  [cartItem]="cartItem"
-  (edit)="editCartItem($event)"
-  [class.edited]="isEdited(cartItem)">
-</app-cart-item> -->
-
 <div class="row">
   <div class="offset-md-9">
     <div class="btn-group mr-2" role="group">
@@ -19,8 +12,6 @@
     <app-cart-item #appCart *ngFor="let item of cartItems" [currentItem] = "item" (increase)="onIncrease(item)"
     (decrease)="onDecrease(item)" (remove)="removeFromCart(item)" (getInfo)="getInfo($event)"> </app-cart-item>
 </div>
-
-<!-- <p [appTxtSize]='txtSize' (click)="clickText()" #testChild class="total" >Total: {{ getTotalPrice() | currency:'USD' }}</p> -->
 
 <p (click)="clickText()" #testChild class="total" >Total: {{ getTotalPrice() | currency:'BYN ' }}</p>
 

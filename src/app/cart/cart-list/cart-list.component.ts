@@ -8,7 +8,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
 import { CartItem } from '../models/cart-item.model';
 import { GeneratorService, ConfigOptionsService, ConstantsService, GeneratorServiceFactory, TokenFromFactory } from '../../core';
-import { CoreModule, OrderByPipe } from '../../core';
+import { OrderByPipe } from '../../core';
 
 
 // rxjs
@@ -66,7 +66,7 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
   constructor(
     private cartService: CartService,
-    private orderByPipe: OrderByPipe,
+    public orderByPipe: OrderByPipe,
     private trueGeneratorService: GeneratorService,
     private router: Router,
     private route: ActivatedRoute,

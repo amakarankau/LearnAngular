@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions  } from '@angular/router';
 import { AboutComponent, PageNotFoundComponent } from './components';
-import { MessagesComponent, LoginComponent, AuthGuard, CustomPreloadingStrategyService    } from './core';
+import { LoginComponent, AuthGuard, CustomPreloadingStrategyService    } from './core';
 
 const routes: Routes = [
     {
@@ -14,12 +14,6 @@ const routes: Routes = [
         loadChildren: 'app/cart/cart.module#CartModule',
         // data: { preload: true,
         //     title: 'Users' }
-      },
-    
-    {
-        path: 'messages',
-        component: MessagesComponent,
-        outlet: 'popup'
       },
     {
         path: 'about',
