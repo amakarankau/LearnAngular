@@ -48,19 +48,19 @@ Code:
 
 Todo:
   Task1:
-    ☐ комменты с гитхаба
-    ☐ стоит ли писать пустые onInit ?
+    ✔ комменты с гитхаба @done(18-02-20 02:22)
+    ✔ стоит ли писать пустые onInit ? @done(18-02-20 02:22)
   Task2:
-  ☐ Разобраться с модулями - почему в app.module нужно указывать конкретные компоненты и нельзя ли модули в которых они объявлены
+  ✔ Разобраться с модулями - почему в app.module нужно указывать конкретные компоненты и нельзя ли модули в которых они объявлены @done(18-02-20 02:22)
        ``` import { HomeComponent } from './home/home.component';
         import { NavBarModule } from './navbar/navbar.module';
 
         export const routeList: Routes = [
           {path: '', component: HomeComponent},```
 
-  ☐ нормально организовать бранчевание
-  ☐ убрать папку shop 
-  ☐ сделать пример с HostBinding
+
+  ✔ убрать папку shop @done(18-02-20 02:22)
+  ✔ сделать пример с HostBinding @done(18-02-20 02:22)
   ✔ переделать ViewChild по примеру с лекции @done(18-01-31 00:23)
    ✔ @ViewChild('name') возвращает ElementRef. работает с #name из темплэйта этого же компонента ? почесу тогда ViewChild ? @done(18-01-31 00:23)
    ✔ @ViewChild(ComponentClass) достает ComponentClass и дает возможность выцзвать метод @done(18-01-31 00:23)
@@ -74,7 +74,8 @@ Todo:
     var serialObj = JSON.stringify(obj); //сериализуем его
     localStorage.setItem("myKey", serialObj); //запишем его в хранилище по ключу "myKey"
     var returnObj = JSON.parse(localStorage.getItem("myKey")) //спарсим его обратно объект```
-
+  Current:
+    ☐ сделать add @critical
 
   
 

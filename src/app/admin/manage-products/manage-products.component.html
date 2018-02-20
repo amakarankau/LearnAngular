@@ -1,6 +1,10 @@
-<app-manage-product
-  *ngFor="let product of products"
-  [product]="product"
+<div>
+  <br>
+  <button class="btn btn-success" (click)="addProduct()">Добавить</button>
+  <br>
+
+  <app-manage-product *ngFor="let product of products" [product]="product" 
   (edit)="editProduct($event)"
   (delete)="deleteProduct($event)">
-</app-manage-product>
+  </app-manage-product>
+</div>

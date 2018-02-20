@@ -25,9 +25,14 @@ export class ManageProductsComponent implements OnInit {
     this.getProducts().catch(err => console.log(err));
   }
 
+  addProduct() {
+    const link = ['add'];
+    this.router.navigate(link, { relativeTo: this.route });
+  }
+
   editProduct(product: Product) {
     const link = ['edit', product.id];
-    this.router.navigate(link, {relativeTo: this.route});
+    this.router.navigate(link, { relativeTo: this.route });
   }
 
   deleteProduct(product: Product) {

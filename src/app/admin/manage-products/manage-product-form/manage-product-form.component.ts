@@ -14,28 +14,30 @@ export class ManageProductFormComponent implements OnInit {
     private router: Router, ) { }
 
   ngOnInit() {
+    this.product = new Product(null, '', '', null, '', '', '', null, null);
     debugger;
     const id = +this.route.snapshot.paramMap.get('productId');
     this.productService.getProductById(id)
       .then(product => {
-        debugger;
-        this.product = product;
+        if (!!product) {
+          this.product = product;
+        }
       })
       .catch(err => console.log(err));
   }
 
   saveProduct() {
-    debugger;
-    const product = { ...this.product };
+    const product = this.product;
 
-    if (product.id) {
-      this.productService.updateProduct(product);
-      this.router.navigate(['/admin/products']);
-    } else {
+    if (this.route.snapshot.url[1].toString() === 'add') {
       this.productService.addProduct(product);
-      this.goBack();
+    } else {
+      this.productService.updateProduct(product);
     }
+    this.router.navigate(['/admin/products']);
   }
+
+
   goBack() {
     this.router.navigate(['../../'], { relativeTo: this.route });
   }
