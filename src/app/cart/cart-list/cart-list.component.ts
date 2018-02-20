@@ -187,6 +187,10 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
     this.toggleAscFlag();
   }
 
+proceedOrder(){
+  
+}
+
   private toggleAscFlag() {
     if (this.sortDirection === 'asc') {
       this.sortDirection = 'desc';

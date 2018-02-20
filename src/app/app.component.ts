@@ -9,7 +9,8 @@ import { map, switchMap } from 'rxjs/operators';
 import { filter } from 'rxjs/operators';
 
 import { LocalStorageService } from './core/services/local-storage.service';
-import { AuthService } from './core/services/auth.service';
+import { AuthService } from './core/services';
+import { CartService } from './cart';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
 
-  constructor(private authService: AuthService, private metaService: Meta, private titleService: Title, private router: Router) { }
+  constructor(private cartService:CartService, private authService: AuthService, private metaService: Meta, private titleService: Title, private router: Router) { }
 
   onActivate($event) {
     console.log('Activated Component', $event);
@@ -59,6 +60,10 @@ private setPageTitlesAndMeta() {
      }
   
       );
+  }
+
+  isEmptyCart(): boolean {
+    return this.cartService.isEmptyCart();
   }
 
   isLoggedAdmin() {
