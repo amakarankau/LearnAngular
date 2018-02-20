@@ -1,4 +1,5 @@
 <app-product
   *ngFor="let product of products"
-  [prod]="product">
+  [prod]="product"
+  (getInfo)="getInfo($event)">
 </app-product>

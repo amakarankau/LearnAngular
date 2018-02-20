@@ -1,7 +1,7 @@
 <h3>Admin</h3>
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" routerLink="./">Инфо</a>
+  <li class="nav-item" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+    <a class="nav-link" routerLink="./">Инфо</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" routerLink="./orders">Заказы</a>

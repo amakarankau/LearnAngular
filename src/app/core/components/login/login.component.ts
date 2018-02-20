@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   message: string;
 
   constructor(
-    public authService: AuthService, 
+    public authService: AuthService,
     public router: Router
 
   ) { }
@@ -32,10 +32,9 @@ export class LoginComponent implements OnInit {
         const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin';
 
         const navigationExtras: NavigationExtras = {
-          queryParamsHandling: 'preserve',  
+          queryParamsHandling: 'preserve',
           preserveFragment: true
         };
-
 
         // Redirect the user
         this.router.navigate([redirect], navigationExtras);

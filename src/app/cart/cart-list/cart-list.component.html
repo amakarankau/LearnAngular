@@ -1,9 +1,9 @@
 <div class="row">
   <div class="offset-md-9">
     <div class="btn-group mr-2" role="group">
-      <button class="btn btn-outline-secondary btn-sm" (click)='sortByName()'>By Name<i class="fas fa-sort fa-sm"></i></button>
-      <button class="btn btn-outline-secondary btn-sm" (click)='sortByPrice()'>By Price<i class="fas fa-sort fa-sm"></i></button>
-      <button class="btn btn-outline-secondary btn-sm" (click)='sortByQuantity()'>By Quantity<i class="fas fa-sort fa-sm"></i></button>
+      <button class="btn btn-outline-secondary btn-sm" (click)='sortByName()'>По названию<i class="fas fa-sort fa-sm"></i></button>
+      <button class="btn btn-outline-secondary btn-sm" (click)='sortByPrice()'>По цене<i class="fas fa-sort fa-sm"></i></button>
+      <button class="btn btn-outline-secondary btn-sm" (click)='sortByQuantity()'>По количеству<i class="fas fa-sort fa-sm"></i></button>
     </div>
   </div>
 </div>
@@ -13,11 +13,11 @@
     (decrease)="onDecrease(item)" (remove)="removeFromCart(item)" (getInfo)="getInfo($event)"> </app-cart-item>
 </div>
 
-<p (click)="clickText()" #testChild class="total" >Total: {{ getTotalPrice() | currency:'BYN ' }}</p>
+<p (click)="clickText()" #testChild class="total" >Всего : {{ getTotalPrice() | currency:'BYN ' }}</p>
 
 <div class="row">
     <div class="col-2">
-        <button class="btn" (click)='clearCart()'>Clear Cart</button>
+        <button class="btn" (click)='clearCart()'>Очистить корзину</button>
     </div>
 </div>
 

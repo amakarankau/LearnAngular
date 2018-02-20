@@ -19,6 +19,8 @@ export class ProductComponent implements OnInit {
 
   @Output() event: EventEmitter<{}> = new EventEmitter();
 
+  @Output() getInfo: EventEmitter<{}> = new EventEmitter();
+
   constructor (private cartService: CartService) {}
 
   ngOnInit (): void {
@@ -27,6 +29,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(): void {
+    debugger;
     if (!this.isOutOfStock()) {
      this.cartService.addToCart(this.prod, this.productQuantity);
     }
@@ -45,4 +48,10 @@ export class ProductComponent implements OnInit {
     }
     console.log(this.prod.isBookmarked);
   }
+
+    getItemInfo() {
+      this.getInfo.emit(this.prod);
+  }
+
+
 }

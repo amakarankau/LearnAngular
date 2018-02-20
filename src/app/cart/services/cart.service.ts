@@ -51,14 +51,15 @@ export class CartService {
 
 
 
-  addToCart(product: Product, quantity?: number) {
+  addToCart(product: Product, q?: number) {
+    const quantity = +q;
     const cart = this.cartList;
     let item = cart.find((p) => p.product.id === product.id);
     if (item === undefined) {
       item = new CartItem(product, quantity || 1);
       cart.push(item);
     } else {
-      item.quantity += quantity || 1;
+      item.quantity = item.quantity + (quantity || 1);
     }
     this.getTotalPrice();
   }

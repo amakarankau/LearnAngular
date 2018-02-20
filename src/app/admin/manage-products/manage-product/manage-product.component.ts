@@ -6,7 +6,6 @@ import { Product } from './../../../products/models/product.model';
   selector: 'app-manage-product',
   templateUrl: './manage-product.component.html',
   styleUrls: ['./manage-product.component.css'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ManageProductComponent implements OnInit {
 

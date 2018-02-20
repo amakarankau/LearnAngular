@@ -5,11 +5,11 @@
         'unSelected':selectedClass === 'unSelected'
       }">
     <div class="row">
-        <div class="col-3">
+        <div class="col-2">
             <img src="../../assets/{{currentItem.product.id}}.jpg" class="product-image" />
           </div>
 
-      <div class="col-3 productName" #productName> {{ currentItem.product.name }}
+      <div class="col-4 productName" #productName> {{ currentItem.product.name }}
         <span [ngClass]="bookmarkStyle" (click)="toggleBookmarkStyle()">
           <i class="far fa-bookmark fa-xs"></i>
         </span>

@@ -8,6 +8,10 @@ import { Subscription } from 'rxjs/Subscription';
 import { map, switchMap } from 'rxjs/operators';
 import { filter } from 'rxjs/operators';
 
+import { LocalStorageService } from './core/services/local-storage.service';
+import { AuthService } from './core/services/auth.service';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
 
-  constructor(private metaService: Meta, private titleService: Title, private router: Router) { }
+  constructor(private authService: AuthService, private metaService: Meta, private titleService: Title, private router: Router) { }
 
   onActivate($event) {
     console.log('Activated Component', $event);
@@ -57,6 +61,8 @@ private setPageTitlesAndMeta() {
       );
   }
 
-
+  isLoggedAdmin() {
+    return this.authService.isLoggedIn;
+  }
 }
 

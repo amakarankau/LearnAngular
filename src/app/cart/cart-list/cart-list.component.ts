@@ -19,6 +19,7 @@ import { map } from 'rxjs/operators';
 import { filter } from 'rxjs/operators';
 
 import { Router, ActivatedRoute, Params  } from '@angular/router';
+import { LocalStorageService } from '../../core/services/local-storage.service';
 
 
 const sInstance1 = new ConstantsService();
@@ -65,6 +66,7 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   // cart$: Observable<Array<CartItem>>;
 
   constructor(
+    private localStorageService: LocalStorageService,
     private cartService: CartService,
     public orderByPipe: OrderByPipe,
     private trueGeneratorService: GeneratorService,
@@ -76,8 +78,9 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   ) { }
 
   getInfo(cartItem: CartItem) {
-  const link = ['info', cartItem.product.id];
-  this.router.navigate(link , {relativeTo: this.route});
+    this.localStorageService.setItem('from', 'cart');
+    const link = ['info', cartItem.product.id];
+    this.router.navigate(link , {relativeTo: this.route});
   }
 
 
