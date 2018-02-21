@@ -21,8 +21,9 @@
     </div>
 
   </div>
-
-  <button type="submit" class="btn btn-success float-right" (click)="confirmByCustomer()">
+  <button type="submit" class="btn btn-info float-right" (click)="confirmByAdmin()" *ngIf="isLoggedAdmin()">
+      <i class="fas fa-check"> </i> Подтвердить</button>
+  <button type="submit" class="btn btn-success float-right" (click)="confirmByCustomer()" *ngIf="!isLoggedAdmin()">
     <i class="fas fa-check"> </i> Подтвердить</button>
   <button class="btn btn-outline-primary" type="button" (click)="goBack()">
     <i class="fas fa-chevron-left"></i> Назад

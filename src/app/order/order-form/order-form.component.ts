@@ -6,6 +6,7 @@ import { CartService } from './../../cart/services/cart.service';
 import { LocalStorageService } from '../../core';
 import { ProductService } from './../../products/services/product.service';
 import { Order, OrderRecord } from './../models';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-order-form',
@@ -20,12 +21,16 @@ phone: string;
 cartItems: CartItem[] = [];
 
   constructor( private localStorageService: LocalStorageService, private cartService: CartService,  private route: ActivatedRoute,
-    private router: Router, private productService: ProductService) { }
+    private router: Router, private productService: ProductService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.order= new Order(null, [], '', '', false, false);
-    this.cartItems = JSON.parse(this.localStorageService.getItem('cart'));
-    console.log(this.cartItems);
+    if (this.isLoggedAdmin()) {
+      console.log('getOrderById');
+    } else {
+      this.order= new Order(null, [], '', '', false, false);
+      this.cartItems = JSON.parse(this.localStorageService.getItem('cart'));
+      console.log(this.cartItems);
+    }
   }
 
   getTotalPrice(): number {
@@ -37,8 +42,16 @@ cartItems: CartItem[] = [];
     this.goBack();
   }
 
+  confirmByAdmin() {
+    this.order.confirmedByAdmin = true;
+  }
+
   goBack() {
     this.router.navigate(['../'], { relativeTo: this.route });
+  }
+
+  isLoggedAdmin() {
+    return this.authService.isLoggedIn;
   }
 
   private createOrder() {
