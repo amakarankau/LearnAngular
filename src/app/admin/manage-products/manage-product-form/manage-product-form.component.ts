@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { ProductService, Product } from '../../../products';
 
 @Component({
@@ -8,7 +10,9 @@ import { ProductService, Product } from '../../../products';
   styleUrls: ['./manage-product-form.component.css']
 })
 export class ManageProductFormComponent implements OnInit {
+
   product: Product;
+
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router, ) { }
@@ -35,7 +39,6 @@ export class ManageProductFormComponent implements OnInit {
     }
     this.router.navigate(['/admin/products']);
   }
-
 
   goBack() {
     this.router.navigate(['../../'], { relativeTo: this.route });

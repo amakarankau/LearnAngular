@@ -36,7 +36,6 @@ const sInstance2 = new ConfigOptionsService();
   ]
 })
 
-
 export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
   @ViewChild(CartItemComponent)
@@ -54,7 +53,7 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   @ViewChild('configValue')
   private configValue: ElementRef;
 
-@Output() proceed = new EventEmitter<CartItem[]>();
+  @Output() proceed = new EventEmitter<CartItem[]>();
 
   clicked = true;
   txtSize = '25px';
@@ -63,9 +62,6 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   private sortDirection: 'asc' | 'desc'  = 'desc';
 
   cartItems: CartItem[] = [];
-
-  // cartItems: Observable<Array<CartItem>>;
-  // cart$: Observable<Array<CartItem>>;
 
   constructor(
     private localStorageService: LocalStorageService,
@@ -87,21 +83,7 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
 
 
   ngOnInit() {
-
     this.cartItems = this.cartService.getCart();
-    // this.cart$ = this.cartService.getCart();
-
-    this.route.paramMap
-    .pipe(
-      switchMap((params: Params) => this.cartService.getCartItem(+params.get('editedCartItemId')))
-    )
-    .subscribe(
-      (cartItem: CartItem) => {
-        // this.editedCartItem = {...cartItem};
-        // console.log(`Last time you edited cartItem ${JSON.stringify(this.editedCartItem)}`);
-      },
-      err => console.log(err)
-    );
   }
 
 
@@ -190,7 +172,6 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   proceedOrder(){
-    debugger;
     this.localStorageService.setItem('cart', JSON.stringify(this.cartItems));
     this.router.navigate(['/order']);
   }

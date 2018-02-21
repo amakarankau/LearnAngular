@@ -44,8 +44,6 @@ export class CartItemComponent implements OnInit, AfterViewInit {
   @ViewChild('productName') private variableInput: ElementRef;
   @ViewChild('itemQuantity') private quantityInput: ElementRef;
 
-  // @HostBinding('class.outlined') private isHovered: boolean;
-
   selectedClass = 'unSelected';
 
   @HostListener('mouseover') onMouseOver() {
@@ -59,7 +57,7 @@ export class CartItemComponent implements OnInit, AfterViewInit {
   constructor(private el: ElementRef,  private renderer: Renderer, private storageService: LocalStorageService, public router: Router) { }
 
   ngAfterViewInit() {
-    this.childMethod();
+    // this.childMethod();
   }
 
   ngOnInit (): void {

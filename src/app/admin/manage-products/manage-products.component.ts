@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { catchError, switchMap } from 'rxjs/operators';
 
-
-import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from '../../products';
 import { Product } from './../../products/models/product.model';
 
@@ -38,6 +37,7 @@ export class ManageProductsComponent implements OnInit {
   deleteProduct(product: Product) {
     this.productService.deleteProduct(product.id);
   }
+  
   private async getProducts() {
     this.products = await this.productService.getProducts();
   }

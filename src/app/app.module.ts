@@ -27,8 +27,8 @@ import { SharedModule } from './shared/shared.module';
     CommonModule,
     FormsModule,
     CoreModule,
-    SharedModule, // Last !!!
-    AppRoutingModule
+    SharedModule, 
+    AppRoutingModule// Last !!!
   ],
   providers: [
     CartService

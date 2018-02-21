@@ -1,30 +1,19 @@
 import { Injectable } from '@angular/core';
 
-// rxjs
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { map, catchError } from 'rxjs/operators';
 
 import { CartItem } from './../models/cart-item.model';
-
 import { Product } from '../../products/models/product.model';
-
-
 
 @Injectable()
 export class CartService {
 
   cartList: CartItem[] = [];
 
-  // cartListObservable: Observable<Array<CartItem>> = of(this.cartList);
-
-  // getCart(): Observable<CartItem[]> {
-  //   return this.cartListObservable;
-  // }
-
-
-    getCart (): CartItem[] {
-      return this.cartList;
+  getCart(): CartItem[] {
+    return this.cartList;
   }
 
 

@@ -4,14 +4,9 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
-import { DialogService, CanComponentDeactivate } from './../../shared';
-
-
-// rxjs
 import { switchMap } from 'rxjs/operators';
 
 import { CartService } from './../services/cart.service';
-import { Subscription } from 'rxjs/Subscription';
 import { LocalStorageService } from '../../core/services/local-storage.service';
 
 @Component({
@@ -30,7 +25,6 @@ export class CartInfoComponent implements OnInit {
     private router: Router,
   ) { }
 
-
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('cartItemId');
 
@@ -40,21 +34,6 @@ export class CartInfoComponent implements OnInit {
       })
       .catch(err => console.log(err));
   }
-
-  //   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-  //     const flags = Object.keys(this.originalUser).map(key => {
-  //       if (this.originalUser[key] === this.user[key]) {
-  //         return true;
-  //       }
-  //       return false;
-  //     });
-
-  //     if (flags.every(el => el)) {
-  //       return true;
-  //     }
-
-  //     return this.dialogService.confirm('Discard changes?');
-  // }
 
   goBack() {
     const fromPath = this.localStorageService.getItem('from');

@@ -9,19 +9,6 @@ const routes: Routes = [
     path: '',
     component: CartComponent,
     children: [
-      // {
-      //   path: 'add',
-      //   component: CartFormComponent
-      // },
-      // {
-      //   path: 'edit/:cartItemId',
-      //   component: CartFormComponent,
-      //   // canDeactivate: [CanDeactivateGuard],
-      //   // resolve: {
-      //   //   user: UserResolveGuard
-      //   // }
-
-      // },
       {
         path: 'info/:cartItemId',
         component: CartInfoComponent

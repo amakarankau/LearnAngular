@@ -1,10 +1,11 @@
-import { ProductService } from './../../products/services/product.service';
-import { Order, OrderRecord } from './../models';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { CartItem } from '../../cart/models/cart-item.model';
 import { CartService } from './../../cart/services/cart.service';
 import { LocalStorageService } from '../../core';
+import { ProductService } from './../../products/services/product.service';
+import { Order, OrderRecord } from './../models';
 
 @Component({
   selector: 'app-order-form',
