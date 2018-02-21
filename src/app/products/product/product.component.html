@@ -9,7 +9,9 @@
         <div class="col-12">
           <h4>
             <span class="text--bold">{{prod.name}}</span>
-            <small class="product-price">{{prod.price | currency:'BYN ':true}}</small>
+            <span class="product-price">
+              <span class="badge badge-warning">{{prod.price | currency:'BYN ':true}}</span>
+            </span>
           </h4>
         </div>
       </div>

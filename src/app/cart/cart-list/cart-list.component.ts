@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Optional, Provider, Inject, PipeTransform } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, ElementRef, Optional, Provider, Inject, PipeTransform, EventEmitter } from '@angular/core';
 
 import { forEach } from '@angular/router/src/utils/collection';
 import { OnChanges, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
@@ -54,6 +54,8 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   @ViewChild('configValue')
   private configValue: ElementRef;
 
+@Output() proceed = new EventEmitter<CartItem[]>();
+
   clicked = true;
   txtSize = '25px';
 
@@ -108,8 +110,8 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
  }
 
  ngAfterViewInit() {
-   console.log('Get ViewChild by # ' + (<HTMLInputElement>this.testChild.nativeElement).innerText);
-   this.appCart.childMethodCalledFromParent();
+  //  console.log('Get ViewChild by # ' + (<HTMLInputElement>this.testChild.nativeElement).innerText);
+  //  this.appCart.childMethodCalledFromParent();
  }
 
   removeFromCart(item: CartItem) {
@@ -187,9 +189,11 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
     this.toggleAscFlag();
   }
 
-proceedOrder(){
-  
-}
+  proceedOrder(){
+    debugger;
+    this.localStorageService.setItem('cart', JSON.stringify(this.cartItems));
+    this.router.navigate(['/order']);
+  }
 
   private toggleAscFlag() {
     if (this.sortDirection === 'asc') {

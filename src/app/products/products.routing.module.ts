@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProductListComponent, ProductFormComponent } from '.';
+import { ProductListComponent } from '.';
 const routes: Routes = [
     {
         path: 'home',
@@ -9,10 +9,6 @@ const routes: Routes = [
             title: 'Products list'
                 }
     },
-    {
-        path: 'edit/:id',
-        component: ProductFormComponent
-        }
 ];
 @NgModule({
     imports: [

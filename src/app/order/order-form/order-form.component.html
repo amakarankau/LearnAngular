@@ -1,0 +1,31 @@
+<div class="order-container">
+  <ul class="list-group">
+    <li *ngFor="let item of cartItems" class="list-group-item d-flex justify-content-between align-items-center col-5">
+      {{ item.product.name }}
+      <span class="badge badge-primary">{{item.quantity}}</span>
+    </li>
+  </ul>
+
+  <br/>
+
+  <p >К оплате:  <span class="badge badge-warning"><h6>{{ getTotalPrice() | currency:'BYN ' }}</h6></span></p>
+
+  <div class="form-row">
+    <div class="form-group col-md-10">
+      <label for="prodId">Адрес доставки</label>
+      <input type="text" class="form-control" id="prodId" placeholder="Адрес" [(ngModel)]="deliveryAddress">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="name">Контактный телефон</label>
+      <input type="text" class="form-control" id="name" required placeholder="Телефон" [(ngModel)]="phone">
+    </div>
+
+  </div>
+
+  <button type="submit" class="btn btn-success float-right" (click)="confirmByCustomer()">
+    <i class="fas fa-check"> </i> Подтвердить</button>
+  <button class="btn btn-outline-primary" type="button" (click)="goBack()">
+    <i class="fas fa-chevron-left"></i> Назад
+  </button>
+</div>
+

@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductsRoutingModule } from './products.routing.module';
 
-import { ProductListComponent, ProductComponent, ProductFormComponent, ProductService } from '.';
+import { ProductListComponent, ProductComponent, ProductService } from '.';
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductComponent, ProductFormComponent],
+    ProductComponent],
   imports: [
     CartModule,
     CommonModule,

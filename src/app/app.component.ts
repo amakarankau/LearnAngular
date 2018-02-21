@@ -25,10 +25,10 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private cartService:CartService, private authService: AuthService, private metaService: Meta, private titleService: Title, private router: Router) { }
 
   onActivate($event) {
-    console.log('Activated Component', $event);
+    // console.log('Activated Component', $event);
   }
   onDeactivate($event) {
-    console.log('Deactivated Component', $event);
+    // console.log('Deactivated Component', $event);
   }
 
   ngOnInit() {

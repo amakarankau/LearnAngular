@@ -1,3 +1,4 @@
+import { OrderModule } from './order/order.module';
 import { CartService } from './cart/services/cart.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NgModuleFactoryLoader } from '@angular/core';
@@ -12,6 +13,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     ProductsModule,
+    OrderModule,
     BrowserModule,
     CommonModule,
     FormsModule,

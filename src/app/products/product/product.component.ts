@@ -29,7 +29,6 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(): void {
-    debugger;
     if (!this.isOutOfStock()) {
      this.cartService.addToCart(this.prod, this.productQuantity);
     }

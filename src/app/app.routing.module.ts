@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions  } from '@angular/router';
 import { AboutComponent, PageNotFoundComponent } from './components';
 import { LoginComponent, AuthGuard, CustomPreloadingStrategyService    } from './core';
+import { OrderFormComponent } from './order/order-form/order-form.component';
 
 const routes: Routes = [
     {
@@ -19,6 +20,11 @@ const routes: Routes = [
         path: 'about',
         component: AboutComponent,
         data: { title: 'About' }
+    },
+    {
+        path: 'order',
+        component: OrderFormComponent,
+        data: { title: 'Order' }
     },
     { 
         path: 'login', 
