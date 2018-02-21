@@ -12,6 +12,12 @@ import { Product } from '../../products/models/product.model';
 @Injectable()
 export class OrderService {
 
+    deleteOrder() {
+        console.log('delete');
+    }
 
+    confirmByAdmin() {
+        console.log('aonfirm by admin');
+    }
 }
 

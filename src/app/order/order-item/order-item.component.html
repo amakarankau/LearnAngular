@@ -1,3 +1,30 @@
-<p>
-  order-item works!
-</p>
+<div class="product-container">
+  <div class="row">
+    <div class="col-12">
+      Id: {{order.orderId}}
+    </div>
+    <div class="row">
+      <div class="col-12">
+        Адрес: {{order.deliveryAddress}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        Телефон: {{order.phone}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        К оплате: {{order.phone}}
+      </div>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-primary info-button mr-4" (click)="getOrderInfo()">
+        <i class="fas fa-info"></i> Инфо</button>
+      <button type="button" class="btn btn-success info-button mr-4" (click)="confirmByAdmin()">
+        <i class="fas fa-check"></i> Подтвердить</button>
+      <button type="button" class="btn btn-danger info-button mr-4" (click)="deleteOrder()">
+        <i class="far fa-trash-alt"></i> Удалить</button>
+    </div>
+  </div>
+</div>
