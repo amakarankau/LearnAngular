@@ -10,7 +10,7 @@ import { OrderService } from '../services/order.service';
 })
 export class OrderItemComponent implements OnInit {
 
-
+  @Input() orderStyle:string;
   @Input() order: Order;
 
   @Output() info = new EventEmitter<Order>();
@@ -20,6 +20,7 @@ export class OrderItemComponent implements OnInit {
   constructor( private orderService: OrderService) { }
 
   ngOnInit() {
+    this.orderStyle = 'notConfirmed';
     // this.order= new Order(null, [], '', '', false, false);
   }
 
@@ -29,6 +30,7 @@ export class OrderItemComponent implements OnInit {
   }
 
   confirmByAdmin() {
+    this.orderStyle = 'confirmed'
     this.confirm.emit(this.order);
   }
 

@@ -1,0 +1,17 @@
+.order-container {
+    padding: 5px;
+    border: 1px solid #EFEFEF;
+    margin: 10px 0;
+}
+
+.order-container:hover {
+  box-shadow: 0 0 5px rgba(50,50,50,0.3);
+}
+
+.confirmed {
+    color:green;
+}
+
+.notConfirmed {
+    color:red;
+}

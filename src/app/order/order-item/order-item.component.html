@@ -1,30 +1,28 @@
-<div class="product-container">
-  <div class="row">
-    <div class="col-12">
+<div class="order-container">
+  <div class="row my-2">
+    <div class="col-2">
+        <i [ngClass]="orderStyle" class="fas fa-tasks fa-2x"></i>
       Id: {{order.orderId}}
     </div>
-    <div class="row">
-      <div class="col-12">
-        Адрес: {{order.deliveryAddress}}
-      </div>
+    <div class="col-6">
+      Адрес: {{order.deliveryAddress}}
     </div>
-    <div class="row">
-      <div class="col-12">
+    <div class="col-4">
         Телефон: {{order.phone}}
       </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col-8">
+      К оплате: {{order.totalPrice}}
     </div>
-    <div class="row">
-      <div class="col-12">
-        К оплате: {{order.phone}}
+    <div class="col-4">
+        <button type="button " class="btn btn-outline-primary" (click)="getOrderInfo()">
+          <i class="fas fa-info"></i> Инфо</button>
+        <button type="button" class="btn btn-outline-success" (click)="confirmByAdmin()">
+          <i class="fas fa-check"></i> Подтвердить</button>
+        <button type="button" class="btn btn-outline-danger" (click)="deleteOrder()">
+          <i class="far fa-trash-alt"></i> Удалить</button>
       </div>
-    </div>
-    <div class="row">
-      <button type="button" class="btn btn-primary info-button mr-4" (click)="getOrderInfo()">
-        <i class="fas fa-info"></i> Инфо</button>
-      <button type="button" class="btn btn-success info-button mr-4" (click)="confirmByAdmin()">
-        <i class="fas fa-check"></i> Подтвердить</button>
-      <button type="button" class="btn btn-danger info-button mr-4" (click)="deleteOrder()">
-        <i class="far fa-trash-alt"></i> Удалить</button>
-    </div>
   </div>
 </div>

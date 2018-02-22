@@ -7,7 +7,8 @@ export class Order {
         public deliveryAddress: string,
         public phone: string,
         public confirmedByCustomer: boolean,
-        public confirmedByAdmin: boolean
+        public confirmedByAdmin: boolean,
+        public totalPrice: number
     ) {
     }
 }

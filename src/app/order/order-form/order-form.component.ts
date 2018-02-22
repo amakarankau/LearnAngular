@@ -27,7 +27,7 @@ cartItems: CartItem[] = [];
     if (this.isLoggedAdmin()) {
       console.log('getOrderById');
     } else {
-      this.order= new Order(null, [], '', '', false, false);
+      this.order= new Order(null, [], '', '', false, false, null);
       this.cartItems = JSON.parse(this.localStorageService.getItem('cart'));
       console.log(this.cartItems);
     }

@@ -9,13 +9,7 @@ const routes: Routes = [
         path: 'admin',
         canLoad: [AuthGuard],
         loadChildren: 'app/admin/admin.module#AdminModule'
-      },
-      {
-        path: 'cart',
-        loadChildren: 'app/cart/cart.module#CartModule',
-        // data: { preload: true,
-        //     title: 'Users' }
-      },
+    },
     {
         path: 'about',
         component: AboutComponent,
@@ -27,7 +21,7 @@ const routes: Routes = [
         data: { title: 'Order' }
     },
     { 
-        path: 'login', 
+        path: 'login',
         component: LoginComponent ,
         data: { title: 'Login' }
     },
@@ -35,6 +29,11 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
+    },
+    {
+        path: 'cart',
+        loadChildren: 'app/cart/cart.module#CartModule',
+        data: { title: 'Users' }
     },
     {
         // The router will match this route if the URL requested

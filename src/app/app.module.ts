@@ -12,6 +12,7 @@ import { ProductsModule } from './products/products.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { CartModule } from './cart/cart.module';
 
 
 
@@ -27,7 +28,8 @@ import { SharedModule } from './shared/shared.module';
     CommonModule,
     FormsModule,
     CoreModule,
-    SharedModule, 
+    SharedModule,
+    CartModule,
     AppRoutingModule// Last !!!
   ],
   providers: [
