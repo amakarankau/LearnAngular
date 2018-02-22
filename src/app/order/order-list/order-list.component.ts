@@ -1,4 +1,6 @@
+import { OrderService } from './../services/order.service';
 import { Component, OnInit } from '@angular/core';
+import { Order } from '../models/order.model';
 
 @Component({
   selector: 'app-order-list',
@@ -7,19 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderListComponent implements OnInit {
 
-  constructor() { }
+  orders: Array<Order>
+
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+    this.orders = this.orderService.getOrders();
   }
 
-editOrder($event) {
+  getInfo(order: Order) {
+    console.log('Info');
+  }
 
-}
-deleteOrder($event) {
+  deleteOrder(order: Order) {
+    this.orderService.deleteOrder(order);
+  }
 
-}
-proceedOrder($event){
-
-}
+  confirmOrder(order: Order) {
+    this.orderService.confirmByAdmin(order);
+  }
 
 }

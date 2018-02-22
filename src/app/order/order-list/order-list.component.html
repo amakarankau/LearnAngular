@@ -1,7 +1,7 @@
-<!-- <app-order-item 
-  *ngFor='let order of orders | async' 
+<app-order-item 
+  *ngFor='let order of orders' 
   [order]="order"
-  (edit)="editOrder($event)"
-  (delete)="deleteOrder($event)"
-  (proceed)="proceedOrder($event)">
-</app-order-item> -->
+  (info)="getInfo($event)"
+  (confirm)="confirmOrder($event)"
+  (delete)="deleteOrder($event)">
+</app-order-item>

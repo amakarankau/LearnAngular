@@ -20,6 +20,7 @@ import { OrderListComponent } from './order-list/order-list.component';
     OrderItemComponent,
     OrderListComponent
   ],
+  exports: [OrderListComponent],
   providers: []
 })
 export class OrderModule {}

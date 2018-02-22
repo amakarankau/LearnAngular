@@ -1,5 +1,9 @@
 <div class="order-container">
   <ul class="list-group">
+
+      <div *ngIf="isLoggedAdmin()"> Для админа список продуктов в покупке пока не готов </div>
+
+
     <li *ngFor="let item of cartItems" class="list-group-item d-flex justify-content-between align-items-center col-5">
       {{ item.product.name }}
       <span class="badge badge-primary">{{item.quantity}}</span>
