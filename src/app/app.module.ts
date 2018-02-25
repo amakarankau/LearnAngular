@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { HttpClientModule }  from '@angular/common/http';
+
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 
 import { ProductsModule } from './products/products.module';
@@ -22,6 +24,7 @@ import { CartModule } from './cart/cart.module';
     appRouterComponents
   ],
   imports: [
+    HttpClientModule,
     ProductsModule,
     OrderModule,
     BrowserModule,
