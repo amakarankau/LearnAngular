@@ -10,7 +10,7 @@ import { ConstantsService } from './services';
 import { GeneratorService } from './services';
 import { LocalStorageService } from './services';
 
-import { TxtSizeDirective } from './directives/txt-size.directive';
+import { TxtSizeDirective } from './';
 import { OrderByPipe } from '.';
 
 @NgModule({
