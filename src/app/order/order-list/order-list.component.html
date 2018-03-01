@@ -1,5 +1,5 @@
 <app-order-item 
-  *ngFor='let order of orders$ | async' 
+  *ngFor='let order of orders$ | async'
   [order]="order"
   (info)="getInfo($event)"
   (confirm)="confirmOrder($event)"

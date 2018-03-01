@@ -62,6 +62,7 @@ cartItems: CartItem[] = [];
     this.order.confirmedByCustomer = true;
     this.order.deliveryAddress = this.deliveryAddress;
     this.order.phone = this.phone;
+    this.order.totalPrice = this.getTotalPrice();
     this.saveOrder();
   }
 

@@ -168,7 +168,7 @@
   ],
   "orders": [
     {
-      "confirmedByAdmin": true,
+      "confirmedByAdmin": false,
       "confirmedByCustomer": false,
       "deliveryAddress": "ул. Притыцкого дом 25 кв 10",
       "id": 1,
@@ -216,86 +216,6 @@
         }
       ],
       "totalPrice": 34.2
-    },
-    {
-      "id": 4,
-      "products": [
-        {
-          "productId": 2,
-          "quantity": 3
-        },
-        {
-          "productId": 3,
-          "quantity": 3
-        }
-      ],
-      "deliveryAddress": "street1",
-      "phone": "123456",
-      "confirmedByCustomer": true,
-      "confirmedByAdmin": true,
-      "totalPrice": null
-    },
-    {
-      "id": 5,
-      "products": [
-        {
-          "productId": 2,
-          "quantity": 3
-        },
-        {
-          "productId": 3,
-          "quantity": 2
-        }
-      ],
-      "deliveryAddress": "cacac",
-      "phone": "424242",
-      "confirmedByCustomer": true,
-      "confirmedByAdmin": false,
-      "totalPrice": null
-    },
-    {
-      "id": 6,
-      "products": [
-        {
-          "productId": 2,
-          "quantity": 4
-        },
-        {
-          "productId": 3,
-          "quantity": 5
-        },
-        {
-          "productId": 4,
-          "quantity": 3
-        }
-      ],
-      "deliveryAddress": "zzcacasca",
-      "phone": "24242424",
-      "confirmedByCustomer": true,
-      "confirmedByAdmin": false,
-      "totalPrice": null
-    },
-    {
-      "id": 7,
-      "products": [
-        {
-          "productId": 2,
-          "quantity": 4
-        },
-        {
-          "productId": 3,
-          "quantity": 5
-        },
-        {
-          "productId": 4,
-          "quantity": 3
-        }
-      ],
-      "deliveryAddress": "ивамвмвам",
-      "phone": "2242424",
-      "confirmedByCustomer": true,
-      "confirmedByAdmin": false,
-      "totalPrice": null
     }
   ]
 }

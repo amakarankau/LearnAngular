@@ -3,14 +3,13 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { _throw } from 'rxjs/observable/throw';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { Product } from '../../products/models/product.model';
 import { OrderRecord } from '../models';
 import { Order } from '../models/order.model';
 import { OrdersAPI } from '../orders.config';
 
-// rxjs
 @Injectable()
 export class OrderService {
 
@@ -18,9 +17,6 @@ export class OrderService {
         private http: HttpClient,
         @Inject(OrdersAPI) private ordersUrl: string
     ) { }
-
-
-    orders: Order[] = [new Order(1, [new OrderRecord(2, 5), new OrderRecord(4, 2)], 'Address1 street 1 home 1', '+3752598547', false, false, 34.2), new Order(2, [new OrderRecord(1, 3)], 'Address2 street 2 home 2', '+3752538547', false, false, 87.32), new Order(3, [new OrderRecord(7, 2), new OrderRecord(10, 1)], 'Address3 street 3 home 3', '+3754598547', false, false, 43.01)];
 
     getOrders(): Observable<Order[]> {
         return this.http.get(this.ordersUrl)
@@ -30,14 +26,12 @@ export class OrderService {
             );
     }
 
-    deleteOrder(order: Order) {
-        const i = this.orders.findIndex(u => u.id === order.id);
-        if (i > -1) {
-            this.orders.splice(i, 1);
-        }
-        console.log('delete');
+    deleteOrder(order: Order): Observable<Order[]> {
+        return this.http.delete(`${this.ordersUrl}/${order.id}`)
+            .pipe(
+                switchMap(() => this.getOrders())
+            );
     }
-
 
     confirmByAdmin(order: Order): Observable<Order> {
         order.confirmedByAdmin = true;

@@ -1,9 +1,10 @@
-import { Observable } from 'rxjs/Observable';
-import { OrderService } from './../services/order.service';
 import { Component, OnInit } from '@angular/core';
-import { Order } from '../models/order.model';
-import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+
+import { Order } from '../models/order.model';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-order-list',
@@ -15,10 +16,10 @@ export class OrderListComponent implements OnInit {
   orders$: Observable<Array<Order>>;
   private sub: Subscription;
 
-  constructor(private orderService: OrderService, private router: Router ) { }
+  constructor(private orderService: OrderService, private router: Router) { }
 
   ngOnInit() {
-    this.orders$ = this.orderService.getOrders();
+    this.getActualOrders();
   }
 
   getInfo(order: Order) {
@@ -26,15 +27,27 @@ export class OrderListComponent implements OnInit {
   }
 
   deleteOrder(order: Order) {
-    this.orderService.deleteOrder(order);
+    this.sub = this.orderService.deleteOrder(order)
+      .subscribe(
+        () => {
+          this.getActualOrders();
+        },
+        error => console.log(error)
+      );
   }
 
   confirmOrder(order: Order) {
     this.sub = this.orderService.confirmByAdmin(order)
-    .subscribe(
-      () => { this.router.navigate(['/admin/orders'])
-      },
-      error => console.log(error)
-    );
+      .subscribe(
+        () => {
+          this.router.navigate(['/admin/orders'])
+        },
+        error => console.log(error)
+      );
   }
+  
+  private getActualOrders(): void {
+    this.orders$ = this.orderService.getOrders();
+  }
+
 }
