@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/Subscription';
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
@@ -10,6 +11,7 @@ import { ProductsAPI } from '../products.config';
 
 @Injectable()
 export class ProductsService {
+sub: Subscription;
 
     constructor(
         private http: HttpClient,
@@ -63,11 +65,8 @@ export class ProductsService {
             );
     }
 
-
     deleteProduct(product: Product): Observable<Product[]> {
-        const url = `${this.productsUrl}/${product.id}`;
-
-        return this.http.delete(url)
+        return this.http.delete(`${this.productsUrl}/${product.id}`)
             .pipe(
                 switchMap(() => this.getProducts())
             );

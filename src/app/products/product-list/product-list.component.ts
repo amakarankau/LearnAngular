@@ -19,11 +19,11 @@ export class ProductListComponent implements OnInit {
     private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.getProducts().catch(err => console.log(err));
+    this.getProducts();
 
   }
 
-  private async getProducts() {
+  private getProducts() {
     this.products$ = this.productsService.getProducts();
 
   }

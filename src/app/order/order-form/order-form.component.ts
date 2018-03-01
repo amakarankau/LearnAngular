@@ -4,7 +4,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CartItem } from '../../cart/models/cart-item.model';
 import { CartService } from './../../cart/services/cart.service';
 import { LocalStorageService } from '../../core';
-import { ProductService } from './../../products/services/product.service';
 import { Order, OrderRecord } from './../models';
 import { AuthService } from '../../core/services/auth.service';
 
@@ -21,7 +20,7 @@ phone: string;
 cartItems: CartItem[] = [];
 
   constructor( private localStorageService: LocalStorageService, private cartService: CartService,  private route: ActivatedRoute,
-    private router: Router, private productService: ProductService, private authService: AuthService) { }
+    private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     if (this.isLoggedAdmin()) {

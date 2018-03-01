@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ApplicationRef } from '@angular/core';
 
 import { Product } from './../../../products';
 
@@ -13,7 +13,8 @@ export class ManageProductComponent implements OnInit {
   @Output() edit = new EventEmitter<Product>();
   @Output() delete = new EventEmitter<Product>();
 
-  constructor() { }
+    constructor(
+      private applicationRef: ApplicationRef) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,10 @@ export class ManageProductComponent implements OnInit {
   }
 
   deleteProduct() {
+    this.applicationRef.tick();
+    
     this.delete.emit(this.product);
   }
+
 
 }

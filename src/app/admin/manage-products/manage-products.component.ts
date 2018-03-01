@@ -1,27 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone, ApplicationRef } from '@angular/core';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { catchError, switchMap } from 'rxjs/operators';
 
-import { ProductService } from '../../products';
 import { Product } from './../../products/models/product.model';
+import { ProductsService } from '../../products/services/products.service';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-manage-products',
   templateUrl: './manage-products.component.html',
   styleUrls: ['./manage-products.component.css']
 })
-export class ManageProductsComponent implements OnInit {
+export class ManageProductsComponent implements OnInit, OnChanges{
+  products$: Observable<Array<Product>>;
   products: Array<Product>;
   constructor(
-    private productService: ProductService,
+    private productsService: ProductsService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.getProducts().catch(err => console.log(err));
+    this.getProducts();
   }
 
   addProduct() {
@@ -35,11 +37,17 @@ export class ManageProductsComponent implements OnInit {
   }
 
   deleteProduct(product: Product) {
-    this.productService.deleteProduct(product.id);
+    this.productsService.deleteProduct(product);
   }
   
-  private async getProducts() {
-    this.products = await this.productService.getProducts();
+  private getProducts() {
+    this.products$ = this.productsService.getProducts();
   }
+
+  ngOnChanges() {
+    debugger;
+    this.getProducts();
+  }
+
 
 }

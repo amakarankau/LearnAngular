@@ -1,15 +1,15 @@
 {
   "products": [
     {
-      "conditionsInfo": "хранить при t от +1 °C до +3 °C и относительной влажности воздуха 90-99 %, 29 дней с даты упаковывания.",
-      "countryOfOrigin": "Турция",
-      "description": "Класс 1. Сорт F-190.",
-      "id": 1,
+      "conditionsInfo": "хранить при t +5 °С и относительной влажности воздуха 90-99%,   30 суток.",
+      "countryOfOrigin": "Польша",
+      "description": "1 категория.",
+      "id": 15,
       "inStock": 1000,
       "isBookmarked": false,
-      "name": "Томат, 1кг",
-      "price": 2.99,
-      "producer": "Ucak Karfesler Gida Seracilik Nakliye Plastik san ve tic.ltd.sti., Tepecik Mah, Kusadasi Yeiu Ozari No: 79 Safarihisar IZMIR, Турция."
+      "name": "Перец чили 1 кг1.1",
+      "price": "10.991",
+      "producer": "PHU Bemo Sp Jawna 99-100 Leczyca, Польша."
     },
     {
       "conditionsInfo": "хранить при t от 7 °C до 9 °C и относительной   влажности воздуха 85-90%, 30 суток.",
@@ -24,7 +24,7 @@
     },
     {
       "conditionsInfo": "хранить при температуре воздуха от 0 до 1 С и   относительной влажности 90-95%. Срок годности 60 суток.",
-      "countryOfOrigin": "Беларусь",
+      "countryOfOrigin": "Беларусь1",
       "description": "Урожай 2017 г.",
       "id": 3,
       "inStock": 1000,
@@ -75,7 +75,7 @@
       "isBookmarked": false,
       "name": "Капуста ранняя 1 кг.",
       "price": 1.09,
-      "producer": "TD 'ORE PROM' DOOEL, s.Prosenikovo 68, 2400 Strumica R.Macedonia, Бывшая Югославская   Республика Македония"
+      "producer": "TD 'ORE PROM' DOOEL, s.Prosenikovo 68, 2400 Strumica R.Macedonia, Бывшая Югославская   Республика Македония (Македония)"
     },
     {
       "conditionsInfo": "хранить при t от +6 °C до +8 °C и   относительной влажности воздуха 85-90%. Срок годности 29 суток. Дата сбора указана на упаковке.",
@@ -164,6 +164,17 @@
       "name": "Перец чили 1 кг.",
       "price": 10.99,
       "producer": "PHU Bemo Sp Jawna 99-100 Leczyca, Польша."
+    },
+    {
+      "id": 16,
+      "name": "xxxx",
+      "description": "cscsd",
+      "price": "222",
+      "countryOfOrigin": "a sc",
+      "conditionsInfo": "scscsc",
+      "producer": "sccsc",
+      "isBookmarked": null,
+      "inStock": "222"
     }
   ],
   "orders": [

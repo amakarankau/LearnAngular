@@ -1,21 +1,3 @@
-// import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter  } from '@angular/core';
-
-// import { CartItem } from './../models/cart-item.model';
-
-// @Component({
-//   selector: 'app-cart-item',
-//   templateUrl: './cart-item.component.html',
-//   styleUrls: ['./cart-item.component.css'],
-//   changeDetection: ChangeDetectionStrategy.OnPush
-// })
-// export class CartItemComponent {
-//   @Input() cartItem: CartItem;
-//   @Output() edit = new EventEmitter<CartItem>();
-
-//   editCartItem() {
-//     this.edit.emit(this.cartItem);
-//   }
-// }
 
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBinding, ElementRef, Renderer, ViewChild } from '@angular/core';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
