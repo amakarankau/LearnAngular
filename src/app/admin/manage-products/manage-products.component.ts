@@ -6,21 +6,26 @@ import { catchError, switchMap } from 'rxjs/operators';
 
 import { Product } from './../../products/models/product.model';
 import { ProductsService } from '../../products/services/products.service';
-import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { OnChanges, OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-manage-products',
   templateUrl: './manage-products.component.html',
   styleUrls: ['./manage-products.component.css']
 })
-export class ManageProductsComponent implements OnInit, OnChanges{
+export class ManageProductsComponent implements OnInit, OnDestroy{
   products$: Observable<Array<Product>>;
-  products: Array<Product>;
+  sub: Subscription;
   constructor(
     private productsService: ProductsService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
   ngOnInit() {
     this.getProducts();
@@ -37,17 +42,15 @@ export class ManageProductsComponent implements OnInit, OnChanges{
   }
 
   deleteProduct(product: Product) {
-    this.productsService.deleteProduct(product);
+    this.sub = this.productsService.deleteProduct(product)
+    .subscribe (
+      () => this.getProducts(),
+      error => console.log(error)
+    );
   }
-  
+
   private getProducts() {
     this.products$ = this.productsService.getProducts();
   }
-
-  ngOnChanges() {
-    debugger;
-    this.getProducts();
-  }
-
 
 }
