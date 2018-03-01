@@ -2,7 +2,7 @@ import { OrderRecord } from './order-record.model';
 
 export class Order {
     constructor(
-        public orderId: number,
+        public id: number,
         public products: OrderRecord[],
         public deliveryAddress: string,
         public phone: string,

@@ -1,17 +1,6 @@
 {
   "products": [
     {
-      "conditionsInfo": "хранить при t +5 °С и относительной влажности воздуха 90-99%,   30 суток.",
-      "countryOfOrigin": "Польша",
-      "description": "1 категория.",
-      "id": 15,
-      "inStock": 1000,
-      "isBookmarked": false,
-      "name": "Перец чили 1 кг1.1",
-      "price": "10.991",
-      "producer": "PHU Bemo Sp Jawna 99-100 Leczyca, Польша."
-    },
-    {
       "conditionsInfo": "хранить при t от 7 °C до 9 °C и относительной   влажности воздуха 85-90%, 30 суток.",
       "countryOfOrigin": "Голландия",
       "description": "Сорт Калифорния ред.",
@@ -179,10 +168,10 @@
   ],
   "orders": [
     {
-      "confirmedByAdmin": false,
+      "confirmedByAdmin": true,
       "confirmedByCustomer": false,
       "deliveryAddress": "ул. Притыцкого дом 25 кв 10",
-      "orderId": 1,
+      "id": 1,
       "phone": "+3752598547",
       "products": [
         {
@@ -200,7 +189,7 @@
       "confirmedByAdmin": false,
       "confirmedByCustomer": false,
       "deliveryAddress": "Ул Сожская дом 25 кв 63",
-      "orderId": 1,
+      "id": 2,
       "phone": "+3752533654",
       "products": [
         {
@@ -214,7 +203,7 @@
       "confirmedByAdmin": false,
       "confirmedByCustomer": false,
       "deliveryAddress": "ул Кунцевщина дом 24 кв 85",
-      "orderId": 1,
+      "id": 3,
       "phone": "+3752525487",
       "products": [
         {
@@ -227,6 +216,86 @@
         }
       ],
       "totalPrice": 34.2
+    },
+    {
+      "id": 4,
+      "products": [
+        {
+          "productId": 2,
+          "quantity": 3
+        },
+        {
+          "productId": 3,
+          "quantity": 3
+        }
+      ],
+      "deliveryAddress": "street1",
+      "phone": "123456",
+      "confirmedByCustomer": true,
+      "confirmedByAdmin": true,
+      "totalPrice": null
+    },
+    {
+      "id": 5,
+      "products": [
+        {
+          "productId": 2,
+          "quantity": 3
+        },
+        {
+          "productId": 3,
+          "quantity": 2
+        }
+      ],
+      "deliveryAddress": "cacac",
+      "phone": "424242",
+      "confirmedByCustomer": true,
+      "confirmedByAdmin": false,
+      "totalPrice": null
+    },
+    {
+      "id": 6,
+      "products": [
+        {
+          "productId": 2,
+          "quantity": 4
+        },
+        {
+          "productId": 3,
+          "quantity": 5
+        },
+        {
+          "productId": 4,
+          "quantity": 3
+        }
+      ],
+      "deliveryAddress": "zzcacasca",
+      "phone": "24242424",
+      "confirmedByCustomer": true,
+      "confirmedByAdmin": false,
+      "totalPrice": null
+    },
+    {
+      "id": 7,
+      "products": [
+        {
+          "productId": 2,
+          "quantity": 4
+        },
+        {
+          "productId": 3,
+          "quantity": 5
+        },
+        {
+          "productId": 4,
+          "quantity": 3
+        }
+      ],
+      "deliveryAddress": "ивамвмвам",
+      "phone": "2242424",
+      "confirmedByCustomer": true,
+      "confirmedByAdmin": false,
+      "totalPrice": null
     }
   ]
 }

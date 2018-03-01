@@ -1,6 +1,9 @@
+import { Observable } from 'rxjs/Observable';
 import { OrderService } from './../services/order.service';
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../models/order.model';
+import { Subscription } from 'rxjs/Subscription';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-list',
@@ -9,12 +12,13 @@ import { Order } from '../models/order.model';
 })
 export class OrderListComponent implements OnInit {
 
-  orders: Array<Order>
+  orders$: Observable<Array<Order>>;
+  private sub: Subscription;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private router: Router ) { }
 
   ngOnInit() {
-    this.orders = this.orderService.getOrders();
+    this.orders$ = this.orderService.getOrders();
   }
 
   getInfo(order: Order) {
@@ -26,7 +30,11 @@ export class OrderListComponent implements OnInit {
   }
 
   confirmOrder(order: Order) {
-    this.orderService.confirmByAdmin(order);
+    this.sub = this.orderService.confirmByAdmin(order)
+    .subscribe(
+      () => { this.router.navigate(['/admin/orders'])
+      },
+      error => console.log(error)
+    );
   }
-
 }

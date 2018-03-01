@@ -20,7 +20,7 @@ export class ManageProductFormComponent implements OnInit {
   constructor(
     private productsService: ProductsService,
     private route: ActivatedRoute,
-    private router: Router, ) { }
+    private router: Router ) { }
 
   ngOnInit() {
     this.product = new Product(null, '', '', null, '', '', '', null, null);

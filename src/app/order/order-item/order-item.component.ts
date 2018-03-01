@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Order } from '../models/order.model';
 import { OrderService } from '../services/order.service';
@@ -10,7 +10,7 @@ import { OrderService } from '../services/order.service';
 })
 export class OrderItemComponent implements OnInit {
 
-  @Input() orderStyle:string;
+  @Input() orderStyle: string = 'notConfirmed';
   @Input() order: Order;
 
   @Output() info = new EventEmitter<Order>();
@@ -20,23 +20,19 @@ export class OrderItemComponent implements OnInit {
   constructor( private orderService: OrderService) { }
 
   ngOnInit() {
-    this.orderStyle = 'notConfirmed';
-    // this.order= new Order(null, [], '', '', false, false);
+    this.orderStyle = this.order.confirmedByAdmin ? 'confirmed' : 'notConfirmed';
   }
-
 
   getOrderInfo() {
     this.info.emit(this.order);
   }
 
   confirmByAdmin() {
-    this.orderStyle = 'confirmed'
+    this.orderStyle = 'confirmed';
     this.confirm.emit(this.order);
   }
 
   deleteOrder() {
     this.delete.emit(this.order);
   }
-
-
 }

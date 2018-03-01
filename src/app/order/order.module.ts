@@ -7,7 +7,7 @@ import { OrderFormComponent } from './order-form/order-form.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderService } from './services/order.service';
-
+import { OrdersAPIProvider } from './orders.config';
 
 @NgModule({
   imports: [
@@ -20,6 +20,6 @@ import { OrderService } from './services/order.service';
     OrderListComponent
   ],
   exports: [OrderListComponent],
-  providers: [OrderService]
+  providers: [OrderService, OrdersAPIProvider]
 })
 export class OrderModule {}
