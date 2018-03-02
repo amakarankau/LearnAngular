@@ -11,14 +11,13 @@ import { GeneratorService } from './services';
 import { LocalStorageService } from './services';
 
 import { TxtSizeDirective } from './';
-import { OrderByPipe } from '.';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [LoginComponent, TxtSizeDirective, OrderByPipe],
-  exports: [TxtSizeDirective, OrderByPipe],
+  declarations: [LoginComponent, TxtSizeDirective],
+  exports: [TxtSizeDirective],
   providers: [AuthGuard, AuthService, CustomPreloadingStrategyService,
     LocalStorageService, GeneratorService, ConstantsService, ConfigOptionsService]
 

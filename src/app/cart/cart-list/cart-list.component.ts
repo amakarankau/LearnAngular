@@ -8,7 +8,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
 import { CartItem } from '../models/cart-item.model';
 import { GeneratorService, ConfigOptionsService, ConstantsService, GeneratorServiceFactory, TokenFromFactory } from '../../core';
-import { OrderByPipe } from '../../core';
+import { OrderByPipe } from '../../shared/pipes/order-by.pipe';
 
 
 // rxjs

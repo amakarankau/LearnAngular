@@ -1,14 +1,16 @@
-import { OrderByPipe } from './../core/pipes/order-by.pipe';
+// import { OrderByPipe } from './../shared/pipes/order-by.pipe';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CartItemComponent, CartService, CartResolveGuard } from '.';
 import { CartRoutingModule, cartRouterComponents } from './cart.routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     CartRoutingModule
   ],
   declarations: [
@@ -16,8 +18,6 @@ import { CartRoutingModule, cartRouterComponents } from './cart.routing.module';
     CartItemComponent
   ],
   providers: [
-    OrderByPipe,
-  // CartService,
   CartResolveGuard]
 })
 export class CartModule {}

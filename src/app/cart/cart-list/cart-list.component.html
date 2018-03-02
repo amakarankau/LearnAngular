@@ -9,7 +9,7 @@
 </div>
 
 <div class = "cart-container">
-    <app-cart-item #appCart *ngFor="let item of cartItems" [currentItem] = "item" (increase)="onIncrease(item)"
+    <app-cart-item #appCart *ngFor="let item of cartItems | orderBy:sortType:sortDirection" [currentItem] = "item" (increase)="onIncrease(item)"
     (decrease)="onDecrease(item)" (remove)="removeFromCart(item)" (getInfo)="getInfo($event)"> </app-cart-item>
 </div>
 
