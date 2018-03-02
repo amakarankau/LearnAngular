@@ -55,7 +55,7 @@ export class ManageProductFormComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['../../'], { relativeTo: this.route });
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
 }

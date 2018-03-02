@@ -6,7 +6,7 @@ import { CanDeactivateGuard } from './../shared';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'cart',
     component: CartComponent,
     children: [
       {

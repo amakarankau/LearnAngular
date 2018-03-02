@@ -7,7 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError } from 'rxjs/operators';
 
 import { CartItem } from './../models/cart-item.model';
-import { CartService } from './../services/cart.service';
+import { CartService } from '../../shared/services/cart.service';
 
 @Injectable()
 export class CartResolveGuard implements Resolve<CartItem> {

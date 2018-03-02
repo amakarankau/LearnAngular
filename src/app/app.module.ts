@@ -1,5 +1,5 @@
 import { OrderModule } from './order/order.module';
-import { CartService } from './cart/services/cart.service';
+import { CartService } from './shared/services/cart.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NgModuleFactoryLoader } from '@angular/core';
 import { CommonModule } from '@angular/common';

@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { CartItem } from '../../cart/models/cart-item.model';
-import { CartService } from '../../cart/services/cart.service';
+import { CartService } from '../../shared/services/cart.service';
 import { LocalStorageService } from '../../core';
 import { AuthService } from '../../core/services/auth.service';
 import { Order, OrderRecord } from '../models';

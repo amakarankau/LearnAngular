@@ -1,4 +1,4 @@
-import { CartModule } from './../cart/cart.module';
+// import { CartModule } from './../cart/cart.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ import { ProductsService } from './services/products.service';
     ProductListComponent,
     ProductComponent],
   imports: [
-    CartModule,
+    // CartModule,
     CommonModule,
     FormsModule, ProductsRoutingModule
   ],

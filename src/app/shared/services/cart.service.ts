@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { map, catchError } from 'rxjs/operators';
 
-import { CartItem } from './../models/cart-item.model';
+import { CartItem } from '../../cart/models/cart-item.model';
 import { Product } from '../../products/models/product.model';
 
 @Injectable()

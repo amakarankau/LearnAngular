@@ -24,7 +24,9 @@ export class ManageProductsComponent implements OnInit, OnDestroy{
   ) { }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    if(this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
   ngOnInit() {

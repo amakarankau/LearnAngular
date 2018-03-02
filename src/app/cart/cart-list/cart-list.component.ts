@@ -3,7 +3,7 @@ import { Component, OnInit, Output, ViewChild, ElementRef, Optional, Provider, I
 import { forEach } from '@angular/router/src/utils/collection';
 import { OnChanges, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../shared/services/cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { Product } from '../../products/index';
 import { CartItem } from '../models/cart-item.model';
@@ -58,8 +58,8 @@ export class CartListComponent implements OnInit, OnChanges, AfterViewInit {
   clicked = true;
   txtSize = '25px';
 
-  private sortType: 'name' | 'quantity' | 'price' = 'name';
-  private sortDirection: 'asc' | 'desc'  = 'desc';
+  sortType: 'name' | 'quantity' | 'price' = 'name';
+  sortDirection: 'asc' | 'desc'  = 'desc';
 
   cartItems: CartItem[] = [];
 

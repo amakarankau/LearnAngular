@@ -20,7 +20,7 @@ const routes: Routes = [
         component: OrderFormComponent,
         data: { title: 'Order' }
     },
-    { 
+    {
         path: 'login',
         component: LoginComponent ,
         data: { title: 'Login' }
@@ -33,7 +33,7 @@ const routes: Routes = [
     {
         path: 'cart',
         loadChildren: 'app/cart/cart.module#CartModule',
-        data: { title: 'Users' }
+        data: { title: 'Cart' }
     },
     {
         // The router will match this route if the URL requested

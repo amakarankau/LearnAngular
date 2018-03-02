@@ -10,7 +10,7 @@ import { filter } from 'rxjs/operators';
 
 import { LocalStorageService } from './core/services/local-storage.service';
 import { AuthService } from './core/services';
-import { CartService } from './cart';
+import { CartService } from './shared/services/cart.service';
 
 
 @Component({

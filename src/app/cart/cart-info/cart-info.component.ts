@@ -8,7 +8,7 @@ import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
 
-import { CartService } from './../services/cart.service';
+import { CartService } from '../../shared/services/cart.service';
 import { LocalStorageService } from '../../core/services/local-storage.service';
 import { ProductsService } from '../../products/services/products.service';
 
