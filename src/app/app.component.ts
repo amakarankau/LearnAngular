@@ -11,6 +11,7 @@ import { filter } from 'rxjs/operators';
 import { LocalStorageService } from './core/services/local-storage.service';
 import { AuthService } from './core/services';
 import { CartService } from './shared/services/cart.service';
+import { AppSettingsService } from './core/services/app-settings.service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
 
-  constructor(private cartService:CartService, private authService: AuthService, private metaService: Meta, private titleService: Title, private router: Router) { }
+  constructor(private cartService:CartService, private authService: AuthService, private metaService: Meta, 
+    private titleService: Title, private router: Router, private appSettingsService: AppSettingsService) { }
 
   onActivate($event) {
     // console.log('Activated Component', $event);
@@ -61,6 +63,12 @@ private setPageTitlesAndMeta() {
   
       );
   }
+
+  loadSettings(): void {
+    this.appSettingsService.loadSettings();
+  }
+
+
 
   isEmptyCart(): boolean {
     return this.cartService.isEmptyCart();

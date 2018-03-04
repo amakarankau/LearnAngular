@@ -1,16 +1,14 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomPreloadingStrategyService  } from './services';
-import { AuthGuard } from './guards/auth.guard';
-import { AuthService } from './services';
-import { LoginComponent } from './components';
-
-import { ConfigOptionsService } from './services';
-import { ConstantsService } from './services';
-import { GeneratorService } from './services';
-import { LocalStorageService } from './services';
-
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { TxtSizeDirective } from './';
+import { LoginComponent } from './components';
+import { AuthGuard } from './guards/auth.guard';
+import {
+    AuthService, ConfigOptionsService, ConstantsService, CustomPreloadingStrategyService,
+    GeneratorService, LocalStorageService
+} from './services';
+import { AppSettingsAPIProvider } from './services/app-settings.config';
+import { AppSettingsService } from './services/app-settings.service';
 
 @NgModule({
   imports: [
@@ -18,8 +16,8 @@ import { TxtSizeDirective } from './';
   ],
   declarations: [LoginComponent, TxtSizeDirective],
   exports: [TxtSizeDirective],
-  providers: [AuthGuard, AuthService, CustomPreloadingStrategyService,
-    LocalStorageService, GeneratorService, ConstantsService, ConfigOptionsService]
+  providers: [AuthGuard, AuthService, CustomPreloadingStrategyService, AppSettingsService,
+    LocalStorageService, GeneratorService, ConstantsService, ConfigOptionsService, AppSettingsAPIProvider]
 
 
 })

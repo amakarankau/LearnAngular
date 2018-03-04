@@ -5,3 +5,5 @@ export * from './generator.service';
 export * from './generator-service.factory';
 export * from './constants.service';
 export * from './config-options.service';
+export * from './app-settings.service';
+export * from './app-settings.config';

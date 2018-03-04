@@ -14,8 +14,10 @@ export class LocalStorageService {
 
   getItem(itemName: string): any {
     let item = localStorage.getItem(itemName);
-    if (item[0] === '{') {
-      item = JSON.parse(item);
+    if (item) {
+      if (item[0] === '{') {
+        item = JSON.parse(item);
+      }
     }
     return item;
   }
