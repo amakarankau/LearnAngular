@@ -1,3 +1,4 @@
+import { TimeInterceptor } from './core/interceptors/time.interceptor';
 import { OrderModule } from './order/order.module';
 import { CartService } from './shared/services/cart.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { HttpClientModule }  from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }  from '@angular/common/http';
 
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 
@@ -35,8 +36,14 @@ import { CartModule } from './cart/cart.module';
     CartModule,
     AppRoutingModule// Last !!!
   ],
+  
   providers: [
-    CartService
+    CartService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TimeInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })
