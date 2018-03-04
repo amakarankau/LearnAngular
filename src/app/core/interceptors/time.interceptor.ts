@@ -24,7 +24,6 @@ export class TimeInterceptor implements HttpInterceptor {
       .pipe(
         map((event: HttpEvent<any>) => {
           if (event instanceof HttpResponse) {
-            debugger;
             if (!!clonedRequest.params.get('startTime')) {
               let respTime = Date.now().toString();
               let range = (+respTime - +clonedRequest.params.get('startTime'));
